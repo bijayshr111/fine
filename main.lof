@@ -1,20 +1,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces Use Case Diagram of the System}}{11}{figure.caption.46}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Level 0 Data Flow Diagram of the System}}{12}{figure.caption.48}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Level 1 Data Flow Diagram of the System}}{14}{figure.caption.49}%
-\contentsline {figure}{\numberline {4}{\ignorespaces System Flowchart Showing Student, Teacher and Admin Workflows}}{15}{figure.caption.51}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Machine Learning Model Workflow}}{17}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Gantt chart showing the project timeline}}{7}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Evaluation metrics.}}{10}{figure.caption.43}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Precision-Recall Curve}}{10}{figure.caption.43}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Confusion Matrix}}{10}{figure.caption.43}%
+\contentsline {subfigure}{\numberline {c}{\ignorespaces Model Performance Metrics}}{10}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Evaluation metrics}}{11}{figure.caption.44}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Top 20 Indicative Words}}{11}{figure.caption.44}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Predicted Probability Distribution}}{11}{figure.caption.44}%
+\contentsline {subfigure}{\numberline {c}{\ignorespaces Model Performance Summary}}{11}{figure.caption.44}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces Evaluation metrics.}}{21}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Precision-Recall Curve}}{21}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Confusion Matrix}}{21}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {c}{\ignorespaces Model Performance Metrics}}{21}{figure.caption.61}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Evaluation metrics}}{22}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Top 20 Indicative Words}}{22}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Predicted Probability Distribution}}{22}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {c}{\ignorespaces Model Performance Summary}}{22}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Use Case Diagram of the System}}{17}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Level 0 Data Flow Diagram of the System}}{18}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Level 1 Data Flow Diagram of the System}}{20}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces System Flowchart Showing Student, Teacher and Admin Workflows}}{21}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Machine Learning Model Workflow}}{23}{figure.caption.66}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

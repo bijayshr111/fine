@@ -94,7 +94,7 @@
 % Figure / table / equation numbering reset per chapter
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
-\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
 \renewcommand{\thetable}{\Roman{table}}
 \numberwithin{equation}{chapter}
 
@@ -363,6 +363,178 @@ Digital document forensics is based on the extraction and verification of hidden
 %The sequential learning nature of gradient boosting means XGBoost can focus on the difficult cases in our data. In customer segmentation, some customers may have clear preferences that are easy to predict, while others have more complex behavior patterns. XGBoost will naturally allocate more of its capacity to learning these challenging cases, potentially improving the quality of recommendations for all customers.
 %Finally, XGBoost has a proven track record in both academic research and industry applications involving tabular data. Its consistent performance across many different types of problems makes it a reliable choice for implementing all the models in our segmentation pipeline, from tech tier classification to brand loyalty prediction.
 
+\chapter{Methodology}
+
+\section{Time Schedule}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{Images/timesched.jpg}
+\caption{Gantt chart showing the project timeline}
+\label{fig:timesched}
+\end{figure}
+This time schedule shows our project outline for the Generative Text Detection, Plagiarism Analysis and Document Forensics System over 16 weeks.
+We completed requirement analysis in week 1 and 2 followed by dataset collection and preprocessing for 3 weeks. We set up the database and backend between week 4 and 6, while working on system design from week 4 to week 5.Frontend and backend development spanned extensively along  week 5 to week 12. Alongside , we developed the ML model from Week 6 to Week 9, built the generative text detection module from Week 6 to Week 10, and worked on the plagiarism analysis and document forensics module from Week 7 to Week 11. Finally, we completed integration and testing in Weeks 12 and 13 with performance evaluation and implementation in the last two weeks while carrying out documentation continuously across all 16 weeks.
+
+\section{Implementation detail}
+\subsection{Frontend Development}
+
+The frontend of OriginalityGuard is developed using React 19, Vite, React
+Router, Axios, and Tailwind CSS. It provides role-specific interfaces for
+students and teachers, including authentication, dashboards, classrooms,
+assignments, and submissions.
+
+Students can join classrooms, view assignments, and submit or update their
+work before the deadline. Teachers can create classrooms and assignments,
+manage join requests, view submissions, generate analysis reports, and review
+originality evidence. The frontend also displays AI-text probabilities,
+highlighted text, source information, similarity results, metadata, clusters,
+and visualizations.
+
+Axios handles API communication, JWT authentication, file uploads, and token
+refresh operations.
+
+\subsection{Backend Development}
+
+The backend is developed using Python, Django, and Django REST Framework. It
+handles authentication, database operations, classroom management,
+assignments, submissions, access control, and analysis services.
+
+The backend is divided into three main applications: \texttt{authentication}
+for user and JWT management, \texttt{classroom} for classrooms, assignments,
+join requests, and submissions, and \texttt{analysis\_engine} for document
+extraction, OCR, AI-text analysis, source verification, similarity analysis,
+and metadata forensics.
+
+PostgreSQL is used for persistent data storage. The system also enforces
+access permissions, unique classroom invite codes, one submission per
+student for an assignment, and deadline restrictions.
+
+\subsection{Generative AI Text Detection Module}
+
+The Generative AI Text Detection Module analyzes submitted text in smaller
+chunks and provides probability-based indicators of AI-like writing. The
+module loads the trained model from
+\texttt{ml\_models/originality\_model.joblib} and assigns each text chunk a
+normalized probability between 0 and 1.
+
+The system records the chunk text, word and sentence counts, probability, and
+AI-like flag. It then calculates the total number of chunks, flagged chunks,
+average probability, AI-text percentage, and overall verdict.
+
+The results are stored in the database and displayed through probability
+bars and highlighted text, allowing teachers to review the evidence before
+making a final judgement.
+\subsection{OCR and Document Extraction Module}
+
+OriginalityGuard supports text extraction from TXT, DOCX, PDF, PPTX, HTML,
+and image files. Digital documents are processed using their embedded text,
+while scanned documents and images are processed using OCR.
+
+The system uses Tesseract, EasyOCR, and TrOCR, with optional Google Cloud
+Vision support. Image preprocessing such as grayscale conversion,
+thresholding, upscaling, and sharpening is applied when required.
+
+The extracted text is cached in the submission record and divided into
+approximately 100--120 word segments for further analysis.
+
+
+\subsection{Submission Similarity and Metadata Forensics}
+
+OriginalityGuard compares submissions using Jaccard similarity, TF-IDF
+cosine similarity, and semantic weighted token similarity. The overall
+similarity is calculated as:
+
+\begin{equation}
+S_{\text{overall}} =
+\frac{S_{\text{Jaccard}} + S_{\text{TF-IDF}} +
+S_{\text{Semantic}}}{3}
+\end{equation}
+
+The system also performs chunk-level comparison to identify strongly similar
+passages.
+
+For metadata forensics, PDF and DOCX properties such as author, creation and
+modification dates, application information, editing time, and revision data
+are examined. An origin signature is generated from available document
+information and hashed for comparison.
+
+The results are presented using clusters, similarity matrices, heatmaps,
+metadata tables, and scatter plots.
+
+\subsection{Deployment Strategy}
+The Multinomial Naive Bayes model achieved an exceptional performance, reflecting 
+a high capability in distinguishing between human-authored and machine-generated 
+text. It reached an overall accuracy of 0.9643, with a precision of 0.9729 and a recall 
+of 0.9346, demonstrating a strong ability to minimize false positives while maintaining 
+robust detection rates. Its F1-score of 0.9534 indicates a highly effective balance 
+between precision and recall, ensuring reliability across diverse document types. 
+Furthermore, the model showed superior discriminatory power with an ROC AUC of 
+0.9945 and a PR AUC of 0.9923, which confirms a clear separation between classes 
+and consistent performance even in challenging detection scenarios. These results 
+highlight the model's suitability as the primary detection engine for our forensic 
+document analysis framework.
+
+\begin{figure}[!p]
+\centering
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/1.png}
+  \caption[Precision-Recall Curve]{Precision-Recall Curve}
+ gant chart description
+\end{subfigure}
+
+\vspace{0.3em}
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/2.png}
+  \caption[Confusion Matrix]{Confusion Matrix}
+  \label{fig:deployment-2}
+\end{subfigure}
+
+\vspace{0.3em}
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/3.png}
+  \caption[Model Performance Metrics]{Model Performance Metrics}
+  \label{fig:deployment-3}
+\end{subfigure}
+
+\caption{ Evaluation metrics.}
+\label{fig:deployment-123}
+\end{figure}
+
+\clearpage
+\begin{figure}[!p]
+\centering
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/4.png}
+  \caption[Top 20 Indicative Words]{Top 20 Indicative Words}
+  \label{fig:deployment-4}
+\end{subfigure}
+
+\vspace{0.3em}
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/5.png}
+  \caption[Predicted Probability Distribution]{Predicted Probability Distribution}
+  \label{fig:deployment-5}
+\end{subfigure}
+
+\vspace{0.3em}
+\begin{subfigure}[t]{0.95\textwidth}
+  \centering
+  \includegraphics[width=0.64\textwidth,height=0.27\textheight,keepaspectratio]{Images/6.jpg}
+  \caption[Model Performance Summary]{Model Performance Summary}
+  \label{fig:deployment-6}
+\end{subfigure}
+
+\caption{Evaluation metrics}
+\label{fig:deployment-456}
+\end{figure}
+
 \chapter{System Design}
 
 \section{Requirement Analysis}
@@ -489,9 +661,16 @@ The web application serves as the primary interface for the plagiarism detection
 The application is built on a robust framework that facilitates seamless interaction with the core AI detection and forensic modules. The architecture is categorized into three main layers:
 
 \begin{itemize}
-    \item \textbf{Frontend Layer:} Developed for responsiveness and accessibility, the user interface provides a dashboard for document submission, progress tracking, and report visualization. It utilizes modern client-side technologies to ensure a fluid user experience across different browsers and devices.
-    \item \textbf{Backend Layer:} The server-side logic handles incoming requests, manages user authentication, and orchestrates the communication between the database and the specialized analysis engines (AI detection, OCR/HTR, and forensic analysis).
-    \item \textbf{Database Management:} A relational database system is employed to securely store user credentials, submission metadata, and analysis results, ensuring data integrity and fast retrieval for integrity reporting.
+    \item \textbf{Frontend Layer:} Developed using React 19 and Vite, the frontend provides a responsive and user-friendly interface for document submission, authentication, analysis progress tracking, and report visualization.
+    
+    React Router is used for client-side navigation, while Tailwind CSS provides responsive styling. Axios facilitates communication between the frontend and backend REST APIs, ensuring smooth interaction across different application components and devices.
+    \item \textbf{Backend Layer:}The backend is developed using Python with Django and Django REST Framework (DRF). It manages API requests, application logic, user authentication, document processing, and communication with the analysis modules. Simple JWT is used to implement secure access and refresh token-based authentication for protected APIs. 
+    
+    The backend also coordinates document extraction using tools such as python-docx, pypdf/PyPDF2, and python-pptx, while OCR technologies including Tesseract, EasyOCR, and TrOCR are used to extract text from scanned documents and images. The analysis layer uses joblib-based machine learning models, NumPy, and custom vector-processing logic for AI-like text detection and similarity scoring. Source verification is supported through Requests, Firecrawl, and search fallbacks to identify possible online sources.
+    \item \textbf{Database Management:} PostgreSQL is used as the primary relational database for securely storing user accounts, authentication-related information, document metadata, analysis results, reports, and other application data. 
+    
+    The database provides persistent and structured storage while Django models and the REST framework manage interaction between the application and stored data.
+    For analysis and reporting, Pandas, Matplotlib, and Seaborn are used to process results and generate visualizations such as heatmaps and cluster plots, helping users interpret document-level and text-level analysis results.
 \end{itemize}
 
 \subsection{User Authentication and Security}
@@ -551,6 +730,7 @@ The Generative Text Detection, Plagiarism Analysis, and Document Forensics Syste
 \label{fig:dfdlvl1}
 \end{figure}
 
+
 \subsection{System Flowchart}
 
 \begin{figure}[H]
@@ -587,92 +767,6 @@ Each text chunk is then processed by the AI Detection Module. Initially, TF-IDF 
 When the AI-generated probability exceeds the threshold, the system proceeds to plagiarism verification. The Firecrawl API is used to search the web for potentially matching sources related to the uploaded content. The retrieved webpages are then processed to extract their textual content, which is compared against the uploaded document using similarity comparison techniques. This comparison identifies overlapping text, calculates similarity scores, and verifies whether the AI-generated content has been copied from existing online sources. The plagiarism verification stage helps distinguish between original AI-generated text and AI-generated content that contains copied or highly similar material.
 
 Finally, the system generates a comprehensive Originality Report that summarizes the complete analysis. The report includes the overall AI-generated probability, confidence score of the classifier, plagiarism status, overall similarity percentage, matched source URLs, and detailed chunk-wise analysis showing which sections are likely AI-generated or contain similar content. These insights provide users with a clear understanding of both the authenticity and originality of the uploaded document, making the system suitable for academic, research, and professional document verification. 
-\chapter{Methodology}
-
-\section{Implementation detail}
-\subsection{Frontend Development}
-The frontend is a React-based application designed to provide a secure and intuitive interface for Students, Teachers, and Django Admin users. We built a robust authentication portal using modern form validation that handles new user registration, credential verification against the backend database, and active session management. For core functionality, we developed responsive, role-specific dashboards: the Student dashboard includes a document submission interface, while the Teacher dashboard enables assignment oversight, forensic analysis management, and report review. We also implemented a dynamic forensic layer using event-driven listeners; this component visually highlights suspicious text segments in the browser, and upon hovering, triggers a pop-up display of source information or database records matching the content.
-
-\subsection{Backend Development}
-The backend is powered by the Django framework, serving as the central engine for request routing, data management, and system orchestration. We utilized Django’s Object-Relational Mapper (ORM) to establish a structured database schema that handles all relational data, including user profiles, classroom assignments, and metadata logs. The system is configured to manage complex request workflows, ensuring that student document submissions are automatically routed to the analysis engine for processing. Furthermore, we implemented role-based access control to ensure that only authorized users can perform specific administrative tasks or access forensic analysis reports. The project directory is organized into separate modules for routing, data models, and service logic to ensure the codebase remains maintainable and scalable as we integrate additional features.
-
-\subsection{Generative AI Text Detection Module}
-The core detection engine is built using a supervised learning pipeline designed to distinguish between human-authored and machine-generated content. The development began with dataset curation, where we utilized a balanced set of human-written and AI-generated academic samples. Preprocessing steps involved data normalization, cleaning of special characters, and tokenization to prepare the input for the classifier. We performed feature engineering by extracting linguistic markers, such as sentence structure variance, word frequency distributions, and perplexity scores, to isolate specific "fingerprints" of AI-generated text. The classifier was trained and iteratively tested to meet our performance requirements, currently achieving an accuracy of 92%, a precision of 0.89, and an F1-score of 0.90. This module is fully integrated into our Django backend, allowing the system to perform real-time inference on documents upon submission.
-
-\subsection{Source Verification and Forensic Analysis}
-This module provides the forensic transparency required for academic verification. When the AI detection engine flags a document, the backend initiates a query against our internal repository of indexed academic papers and web-scraped data to identify potential source matches. The forensic logic performs a similarity search to locate the most likely origin of the flagged content. This analysis is then paired with our frontend highlighting component, allowing users to see exactly which sections were flagged and why. By linking the backend forensic queries to the dynamic frontend display, we provide a complete audit trail that helps educators verify the integrity of student submissions efficiently.
-\subsection{Deployment Strategy}
-The Multinomial Naive Bayes model achieved an exceptional performance, reflecting 
-a high capability in distinguishing between human-authored and machine-generated 
-text. It reached an overall accuracy of 0.9643, with a precision of 0.9729 and a recall 
-of 0.9346, demonstrating a strong ability to minimize false positives while maintaining 
-robust detection rates. Its F1-score of 0.9534 indicates a highly effective balance 
-between precision and recall, ensuring reliability across diverse document types. 
-Furthermore, the model showed superior discriminatory power with an ROC AUC of 
-0.9945 and a PR AUC of 0.9923, which confirms a clear separation between classes 
-and consistent performance even in challenging detection scenarios. These results 
-highlight the model's suitability as the primary detection engine for our forensic 
-document analysis framework.
-
-\begin{figure}[!p]
-\centering
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/1.png}
-  \caption[Precision-Recall Curve]{Precision-Recall Curve}
-  \label{fig:deployment-1}
-\end{subfigure}
-
-\vspace{0.3em}
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/2.png}
-  \caption[Confusion Matrix]{Confusion Matrix}
-  \label{fig:deployment-2}
-\end{subfigure}
-
-\vspace{0.3em}
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/3.png}
-  \caption[Model Performance Metrics]{Model Performance Metrics}
-  \label{fig:deployment-3}
-\end{subfigure}
-
-\caption{ Evaluation metrics.}
-\label{fig:deployment-123}
-\end{figure}
-
-\clearpage
-\begin{figure}[!p]
-\centering
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/4.png}
-  \caption[Top 20 Indicative Words]{Top 20 Indicative Words}
-  \label{fig:deployment-4}
-\end{subfigure}
-
-\vspace{0.3em}
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/5.png}
-  \caption[Predicted Probability Distribution]{Predicted Probability Distribution}
-  \label{fig:deployment-5}
-\end{subfigure}
-
-\vspace{0.3em}
-\begin{subfigure}[t]{0.95\textwidth}
-  \centering
-  \includegraphics[width=0.64\textwidth,height=0.27\textheight,keepaspectratio]{Images/6.jpg}
-  \caption[Model Performance Summary]{Model Performance Summary}
-  \label{fig:deployment-6}
-\end{subfigure}
-
-\caption{Evaluation metrics}
-\label{fig:deployment-456}
-\end{figure}
-
 
 \chapter{Results and Discussion}
 
@@ -734,15 +828,38 @@ The deployed system was load-tested to verify scalability. The backend successfu
 
 Pilot testing with 15 faculty members and 50 students confirmed that the user interface is intuitive and that the system produces actionable results. Teachers reported confidence in the AI detection results and found the highlighted sections and source citations helpful for follow-up academic integrity conversations. Students found the dashboard clear and appreciated receiving immediate feedback on submission status. No critical usability issues were identified during pilot testing.
 
-\chapter{Conclusions}
-This project has successfully developed a unified, end-to-end system for Generative AI text detection, plagiarism analysis, and document forensics. The core detection engine, built using TF-IDF feature extraction and a Multinomial Naive Bayes classifier trained on the DAIGT v2 dataset, achieves an accuracy of 92%, precision of 0.89, and an F1-score of 0.90 on held-out validation data. The system integrates a fully functional Optical Character Recognition (OCR) module, enabling digitization of scanned documents and handwritten submissions, which are then processed through the same AI detection and similarity analysis pipeline as digital documents. The web application features role-based authentication and intuitive dashboards for Students, Teachers, and Administrators, with a Django backend orchestrating document routing, data storage via ORM, and communication with the analysis engines.
+\chapter{Conclusion}
 
-The completion of this project validates both the technical feasibility and practical utility of the proposed approach. By combining stylometric and statistical detection methods with OCR-enabled document preprocessing, the system successfully handles diverse submission formats—from born-digital PDFs to scanned images—within a single, unified framework. The strong classifier performance, coupled with comprehensive metadata forensic analysis and plagiarism verification modules, provides educators with a reliable, transparent, and actionable tool for verifying academic integrity. The system is production-ready and demonstrates that machine learning-based AI text detection, when integrated with a well-designed user interface and robust backend architecture, can effectively address modern challenges in academic dishonesty detection and document authenticity verification.
-\chapter{Limitations and Future Enhancement}
+This project successfully developed \textit{OriginalityGuard}, a web-based academic originality-assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.
 
-While this project has successfully delivered a complete system with full API, frontend, backend, and OCR implementation, several enhancements could extend its capabilities and applicability. The current system focuses on detecting AI-generated text within academic submissions; however, it could be expanded to support additional file formats beyond PDF, DOCX, and image scans, including multimedia submissions and cloud-based document services. Additionally, the multilingual capability of the detection model is currently limited to English-language submissions; extending support to detect AI-generated text in multiple languages would broaden the system's utility for international academic institutions.
+The system combines multiple complementary techniques to support originality review. It extracts text from digital documents and scanned files using document parsers and OCR methods, then performs chunk-level AI-text probability analysis to present interpretable indicators. It also supports on-demand online source verification, pairwise similarity analysis using Jaccard similarity, TF--IDF cosine similarity, and weighted token similarity, as well as PDF and DOCX metadata forensics. The generated reports, similarity matrices, clusters, heatmaps, and metadata records enable teachers to examine suspicious patterns with supporting evidence instead of relying on a single score.
 
-Future enhancements could include integration of advanced deep learning models for perplexity-based detection and stylometric feature extraction, which may offer improved accuracy on emerging generative AI models. The forensic analysis module could be extended to detect more sophisticated tampering techniques and provide explainable AI (XAI) reports that help educators understand the reasoning behind detection decisions. Infrastructure improvements such as distributed caching, load balancing for high-volume submissions, and advanced monitoring dashboards would further enhance scalability and reliability. Finally, the system could be adapted for use beyond academic integrity—including plagiarism detection in professional writing, verification of authenticity in legal documents, and content authenticity checks for news organizations and publishers.
+A key contribution of the project is its evidence-oriented design. AI-text probabilities, source matches, document similarity, and metadata anomalies are presented as indicators for instructor review rather than as automatic proof of plagiarism or AI use. This approach recognizes the limitations of OCR quality, probabilistic classification, online search coverage, and editable document metadata, while preserving human judgement as the final basis for academic decisions.
+
+Overall, OriginalityGuard demonstrates that classroom workflows, AI-text indicators, plagiarism-related similarity analysis, OCR, source verification, and document forensics can be integrated into one practical platform. The completed system provides a useful foundation for supporting academic integrity by helping educators prioritize submissions for review, investigate possible concerns systematically, and make informed decisions using transparent analytical evidence.
+\chapter{Limitations and Future Enhancements}
+
+\section{Limitations}
+
+This project is designed as an originality-assistance system that provides evidence for instructor review; it does not automatically determine whether plagiarism or AI use has occurred. The AI-text analysis module produces probability-based indicators, and these results may be affected by the characteristics of the trained model, writing style, document length, and the continuous evolution of generative AI systems. Therefore, AI-text probability should be interpreted together with academic context and other available evidence.
+
+The accuracy of the text-extraction pipeline depends on the quality of submitted documents. Although the system supports digital text extraction and OCR for scanned PDFs and images, low-resolution scans, noise, poor contrast, complex layouts, mathematical content, and unclear handwriting can reduce extraction quality. Since the extracted text is used for AI analysis, source verification, and similarity comparison, extraction errors may influence the final report.
+
+Online source verification is limited by the availability, accessibility, and indexing of online content. Search engines and external services may not return every relevant source, and a detected web-page similarity does not necessarily establish that a student copied from that source. Likewise, the absence of a matched source does not prove that the content is original. Source-verification results should therefore be treated as possible evidence rather than a final conclusion.
+
+Finally, the current implementation uses in-process background processing for potentially slow source-verification tasks. While this approach is suitable for development and moderate workloads, it may not provide sufficient reliability, monitoring, and scalability for a large institutional deployment with many simultaneous submissions.
+
+\section{Future Enhancements}
+Future work can improve the AI-text detector using larger and more diverse validated datasets. Evaluation using precision, recall, F1-score, OCR error rate, and processing time would provide a clearer measure of system performance.
+
+Multilingual support like Nepali, can be added to make the system more suitable for local academic institutions. Embedding-based semantic similarity can also improve the detection of paraphrased content.
+
+The current background processing can be replaced with Celery and Redis for scalable asynchronous analysis, task retries, progress tracking, and completion notifications. Downloadable reports can also be included for formal academic review.
+
+Additional features such as rubric-based grading, teacher comments, audit logs, submission-history tracking, and examiner analytics can improve usability, assessment transparency, and accountability.
+
+Security and deployment can be strengthened through secure cloud storage, stricter file validation, malware scanning, HTTPS, environment-based secret management, restricted CORS policies, and regular security monitoring.
+
 \chapter*{Appendices}
 \addcontentsline{toc}{chapter}{\numberline{}Appendices}
 
