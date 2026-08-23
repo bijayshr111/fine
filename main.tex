@@ -323,6 +323,30 @@ Stylometry operates on the principle that individuals possess unique writing sig
 By analyzing these stable linguistic features, the system builds an authorial profile for comparison. This approach allows for the identification of stylistic anomalies, such as abrupt changes in sentence structure or lexical complexity, which often indicate the integration of synthetic content into a human-authored text.
 \subsection{Neural Networks for Recognition (OCR and HTR)}
 The document digitization process relies on deep learning architectures designed for sequential data processing. Convolutional Neural Networks (CNNs) are employed for feature extraction from raw document images, capturing local patterns and character shapes. These features are then fed into Long Short-Term Memory (LSTM) networks, which process the sequential nature of text. This combination effectively models the spatial and temporal dependencies inherent in both printed characters and complex, cursive handwriting, enabling accurate conversion of diverse document formats into digital text.
+
+\subsection{Optical Character Recognition}
+Optical Character Recognition (OCR) is the process of converting text contained in a scanned document or image into machine-readable characters. The process generally consists of image acquisition, preprocessing, text-region detection, character recognition, and post-processing. Unlike direct extraction from a digital PDF or DOCX file, OCR estimates the text from visual information, so its output depends on image resolution, contrast, layout, noise, and the quality of the recognition model.
+
+In this project, digital documents are first processed using their embedded text whenever it is available. Image files and image-based PDF pages are routed to OCR engines such as Tesseract and EasyOCR. The extracted result is normalized and cached so that later AI-text detection and similarity analysis use the same text representation. This separation between extraction and analysis allows the recognition stage to be improved without changing the downstream originality workflow.
+
+\subsection{Image Preprocessing for OCR}
+Image preprocessing improves the visual quality of input documents before recognition. Grayscale conversion reduces the image to intensity values, while contrast enhancement separates characters from the background. Thresholding produces a clearer foreground and background, and upscaling increases the effective size of small characters. Sharpening can strengthen character boundaries, although excessive sharpening may also introduce noise.
+
+These operations are especially useful for low-quality scans, photographed pages, and uneven backgrounds. However, preprocessing cannot recover information that is absent from the original image. Therefore, OCR output should be treated as an estimate and checked for recognition errors before it is used as evidence in an originality report.
+
+\subsection{Handwritten Text Recognition}
+Handwritten Text Recognition (HTR) extends OCR to handwriting, where character shapes, spacing, and writing styles vary considerably. A recognition model typically extracts visual features from a line or word image and maps them to a sequence of characters. CNN layers can learn spatial features, while recurrent or transformer-based layers model the order and context of the character sequence. Connectionist Temporal Classification (CTC) is commonly used when character-level alignment is not available, because it can train a model from an input image and its corresponding text sequence without requiring every character position to be labelled.
+
+The system supports the TrOCR handwritten-text model as an additional recognition option. HTR performance is affected by cursive writing, page skew, overlapping characters, ink variation, and handwriting legibility. For this reason, HTR results are incorporated into the analysis pipeline as extracted text rather than being treated as unquestionable ground truth.
+
+\subsection{Text Extraction Confidence and Analysis Quality}
+The quality of OCR or HTR directly affects every later stage of the system. Missing words can reduce similarity scores, while incorrectly recognized words can create false matches or change the probability assigned by the AI-text detector. A reliable extraction workflow therefore prefers embedded digital text when it is available, applies OCR only when needed, normalizes the result, and stores the extracted text for repeatable analysis.
+
+\subsection{Similarity and Document Provenance Theory}
+Similarity analysis estimates whether two documents share content or structure. Jaccard similarity measures the intersection of their token sets relative to their union, while TF-IDF cosine similarity compares documents using the importance of terms within the collection. A weighted token-overlap measure can provide an additional signal for short or partially matching passages. Combining these signals is useful because exact overlap, term distribution, and local matching capture different forms of reused content.
+
+Document provenance analysis examines information about how and when a file was created or modified. PDF and DOCX properties may include the author, creator application, creation time, modification time, editing duration, save count, and revision count. An origin signature can be generated by normalizing selected identity and document fields and hashing the result. Matching signatures or unusual timestamp relationships can identify an anomaly for review, but metadata alone cannot prove that a document was copied or tampered with because these fields may be missing or changed.
+
 \subsection{Mathematical Foundation}
 The theoretical framework of the system is rooted in several mathematical foundations that quantify linguistic features, document authenticity, and recognition accuracy. 
 
@@ -482,7 +506,6 @@ document analysis framework.
   \centering
   \includegraphics[width=\textwidth,height=0.27\textheight,keepaspectratio]{Images/1.png}
   \caption[Precision-Recall Curve]{Precision-Recall Curve}
- gant chart description
 \end{subfigure}
 
 \vspace{0.3em}
@@ -701,12 +724,14 @@ This web-based approach ensures that users can access powerful analytical tools 
 
 The use case diagram illustrates how the three groups:Student, Teacher, and Admin—interact with the Generative Text Detection, Plagiarism Analysis, and Document Forensics system. Each component is connected to the functions they are authorized to perform, while common and dependent functionalities are represented using include relationships. 
 
-The student can register an account, verify their email, log in, complete their profile, access the dashboard, join classrooms, submit assignments, and view submission results with highlighted plagiarism or AI-generated text.
+The Student can register an account, verify their email, log in, complete their profile, view the dashboard, join classrooms using an invite code, view assignments, submit assignments in text or file format, and view their submissions. When submitting an assignment, the system includes Text Extraction (OCR/Parse) to extract readable text from uploaded documents for further analysis.
 
-The teacher can, review student submissions, analyze submissions, perform source verification, view highlighted results, and manage classroom data.
+The Teacher can register and verify an account, log in, complete their profile, create classrooms and assignments, manage student join requests by accepting or rejecting them, view the classroom dashboard, and review student submissions. The teacher can also analyze submissions using the Generative Text Detection and Plagiarism Analysis process, which includes viewing the Similarity Matrix and generating reports with visualizations. The teacher can additionally perform metadata forensics on submitted documents to support detailed document analysis.
 
-The administrator is responsible for logging into the Django Admin panel, managing users, monitoring system activities, and configuring system settings.
- The system integrates document analysis, source verification, and highlight generation to support accurate plagiarism detection, AI-generated text identification, and document forensic analysis while providing role-based access for all users.
+The Admin (Django Admin) is responsible for administrative and system-level operations. The admin can log in to the Django Admin panel, manage users by controlling their active/inactive status and roles, monitor system activities, configure system settings, and perform data backup and restoration. These functions help maintain system security, configuration, and overall reliability.
+
+Overall, the system provides role-based access so that students, teachers, and administrators can perform only the functions relevant to their responsibilities. It integrates text extraction, generative text detection, plagiarism analysis, similarity comparison, report generation, and metadata forensics to support comprehensive analysis of submitted documents while allowing teachers to review and interpret the generated results.
+
 \subsection{Data Flow Diagram}
 
 \begin{figure}[H]
@@ -729,25 +754,32 @@ The Generative Text Detection, Plagiarism Analysis, and Document Forensics Syste
 \includegraphics[width=\textwidth,height=0.8\textheight]{Images/DFD1.png}\caption{Level 1 Data Flow Diagram of the System}
 \label{fig:dfdlvl1}
 \end{figure}
+User Authentication and Profile Management handles the registration and login activities of both the Teacher and Student. The Teacher and Student provide their registration or login details to this process, while the Django Admin can also log in through it. The process stores and retrieves user records from the User Database (D1) and, after successful authentication, passes the user to the Classroom \& Assignment Management process.
 
+Classroom and Assignment Management manages classroom information, assignments, requests, and student submissions. The Teacher uses this process to add assignments and manage classroom requests, while the Student submits assignments through it. The process stores assignment and classroom information in the Classroom Database (D2) and retrieves submission data when required. It also sends relevant classroom and assignment information to the Generative Text Detection Engine for further analysis.
+
+Generative Text Detection Engine analyzes submitted text to detect whether it may have been generated by AI and extracts relevant text information. The Teacher sends an analysis request to this process, and the engine returns highlighted text and its source for review. It also interacts with the classroom Database (D3) by retrieving text extraction data and storing or processing the extracted text. The analysis results are then passed to the Plagiarism Analysis and Document Forensics process for further examination.
+
+Plagiarism Analysis and Document Forensics performs detailed plagiarism and document analysis using the information received from the Generative Text Detection Engine. The Teacher can request and view the analysis results through this process. It generates a similarity matrix with probability scores and stores the results in the Report Database (D4). The process can retrieve analytics reports from the database and provides the final analysis for the Teacher, while the Django Admin can also interact with this process for administrative monitoring and management.
 
 \subsection{System Flowchart}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{Images/system_flowchart.png}
+\includegraphics[width=\textwidth,height=0.75\textheight]{Images/system_flowchart.png}
 \caption{System Flowchart Showing Student, Teacher and Admin Workflows}
 \label{fig:flowchart}
 \end{figure}
-The system flowchart in Figure IV illustrates the overall workflow of the Generative AI Text Detection, Plagiarism Analysis, and Document Forensics System by showing the activities performed by the three primary user roles: Student, Teacher, and Django Admin.
+The system flowchart in Figure presents the complete operational workflow of the Generative Text Detection, Plagiarism Analysis, and Document Forensics System through three separate user lanes: Student, Teacher, and Django Admin. The flow begins from a common start point and then follows different activities according to the responsibilities of each role.
 
-The process begins with a common start node and branches into separate lanes representing the responsibilities of each user. Students first register or log in to the system, complete their profile if they are new users, access the classroom dashboard, submit documents for analysis, and view AI detection and source verification reports before logging out. 
+The Student workflow starts with account registration, followed by email verification, login, and profile completion. The student then accesses the dashboard and enters an invite code to join a classroom. The system checks whether the join request is successful; if the code is invalid or the classroom is full, an error is displayed. After successfully joining, the student can view available assignments and submit an assignment as text or a file. The submission is validated, and unsuccessful submissions due to issues such as invalid files or late submission return an error. Successful submissions are stored, after which the student can view their submissions and log out.
 
-Teachers log in to the system, create classrooms and assignments, review student submissions, initiate AI text detection, examine highlighted sources and verification results, provide feedback to students, and then log out.
+The Teacher workflow begins with registration, email verification, login, and profile completion before accessing the dashboard. The teacher can create classrooms and assignments and manage student join requests. The system provides a decision point for each request, allowing the teacher to either approve or reject it. Approved students can proceed within the classroom, while rejected requests result in a notification being sent to the student. The teacher can then view submissions, select a specific submission, and initiate the analysis process. The system performs Generative Text Detection and Plagiarism Analysis, after which the teacher can view the similarity matrix, generate reports and visualizations, and perform metadata forensics on the submitted document.
 
-The Django Admin logs in through the administrative portal to manage user accounts, monitor overall system activity, configure system settings, and maintain the application's functionality before logging out.
+The Django Admin workflow is focused on administrative and maintenance activities. The administrator first logs in through the admin panel, where the system validates the administrator's credentials. If the credentials are invalid, an access-denied error is displayed and the administrator is returned to the login stage. With valid credentials, the administrator can manage users, monitor system activity, configure system settings, and perform backup or restoration of system data. The administrator then logs out after completing the required administrative operations.
 
-All user workflows eventually converge at the end node, demonstrating the complete operational flow of the system. The flowchart provides a clear representation of how each user interacts with the system and highlights the sequence of processes from authentication to task completion, ensuring an organized and efficient workflow.
+The separate workflows demonstrate how the system handles authentication, classroom management, assignment submission, analysis, administrative control, and error conditions for different user roles. Each lane follows its own sequence of activities and decision points, while the workflows ultimately converge at the End node, representing the completion of the overall system process.
+
 \subsection{Data Preparation and Machine Learning Workflow}
 
 The data collection and integration process consists of two parallel pipelines: the AI detection model dataset preparation pipeline and the external content collection pipeline for plagiarism verification. In the AI detection pipeline, the Kaggle DAIGT v2 dataset containing human-written and AI-generated text samples is collected and cleaned by removing duplicate records, missing values, and inconsistencies. The text is then preprocessed through tokenization, lowercasing, and normalization before being divided into training (80%) and testing (20%) datasets. TF-IDF feature extraction using 1–2 gram representations and 10,000 features converts the text into numerical vectors suitable for machine learning. A Multinomial Naïve Bayes classifier is trained using these features to develop an AI text detection model capable of classifying input text as human-written or AI-generated.
@@ -770,64 +802,63 @@ Finally, the system generates a comprehensive Originality Report that summarizes
 
 \chapter{Results and Discussion}
 
-This chapter presents the completed results of the Generative AI Text Detection, Plagiarism Analysis, and Document Forensics system implementation. The project has reached full production status with all core components—frontend, backend, API, and OCR module—successfully integrated and tested.
+This chapter presents the results of the OriginalityGuard system implementation. The project has reached full integration status, with the frontend, backend, REST API, OCR module, AI-text detector, source-verification service, and metadata-forensics engine implemented and functioning together as a single role-based platform.
 
 \section{Experiment Setup}
 
 \subsection{Dataset and Preprocessing}
 
-The system was developed and validated using the Kaggle DAIGT v2 dataset, which contains balanced pairs of human-written and AI-generated academic text samples. The dataset was preprocessed through tokenization, lowercasing, special character removal, and normalization to prepare input for the machine learning pipeline. The dataset was split into 80\% training and 20\% testing sets, ensuring unbiased performance evaluation on unseen data. For OCR validation, a separate corpus of scanned academic documents and handwritten notes was collected and manually labeled for ground-truth comparison.
+The AI-text detector operates on the persisted model \texttt{ml\_models/originality\_model.joblib}, which is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
 
 \subsection{Feature Extraction}
 
-TF-IDF (Term Frequency–Inverse Document Frequency) vectorization was applied to convert preprocessed text into numerical feature vectors. The vectorizer was configured with 1–2 gram representations and a maximum of 10,000 features, capturing both unigram and bigram patterns indicative of AI-generated content. This approach effectively captures linguistic fingerprints without requiring computationally expensive deep learning models during inference.
+Chunk-level AI-likelihood is produced directly by the persisted joblib model as a normalized probability between 0 and 1 per chunk, without requiring a separate manual feature-engineering step at inference time. For pairwise similarity, three independent feature signals are extracted per document pair: Jaccard token-set overlap, TF-IDF cosine similarity, and a custom semantic weighted token-overlap score.
 
 \section{Software Development Approach}
 
 \subsection{Frontend Implementation}
 
-The frontend application was built using React.js, providing a responsive, role-based user interface across desktop and mobile platforms. Authentication is handled through encrypted JWT tokens, ensuring secure session management. The Student dashboard enables document upload via drag-and-drop, progress tracking, and access to detailed integrity reports with highlighted flagged sections. The Teacher dashboard provides administrative controls for classroom management, batch submission review, forensic analysis result visualization, and export functionality for formal academic records. The Django Admin interface provides system administrators with user and configuration management capabilities.
+The React 19 (Vite) frontend delivers a role-based interface with distinct Student and Teacher dashboards. \texttt{SubmissionDetail.jsx} renders chunk-level AI-probability bars, triggers source verification, and polls for background results. \texttt{MetadataForensics.jsx} renders similarity clusters, the pairwise similarity matrix, metadata fields, heatmaps, and scatter plots. JWT-based authentication with automatic token refresh is functioning across all protected routes.
 
 \subsection{Backend Architecture}
 
-The backend was implemented using Django framework with a PostgreSQL relational database. The system follows a modular architecture with separate modules for authentication, document management, analysis routing, and result aggregation. Django's Object-Relational Mapper (ORM) handles all data persistence, including user profiles, submission metadata, analysis results, and forensic logs. Role-based access control (RBAC) ensures that students, teachers, and administrators can only access data appropriate to their roles, protecting sensitive submission and report content.
+The Django REST Framework backend is organized into three functioning apps -- \texttt{authentication}, \texttt{classroom}, and \texttt{analysis\_engine} -- with role-filtered querysets enforcing that students, teachers, and administrators access only permitted data. Database integrity rules are enforced and confirmed working: unique classroom invite codes, one join request per student per classroom, one submission per student per assignment, and rejection of submission create/update after the assignment deadline.
 
 \subsection{API Development}
 
-A RESTful API was developed to enable communication between the frontend and backend analysis engines. All endpoints implement proper error handling, input validation, and rate limiting to prevent abuse. The API supports asynchronous document processing, allowing users to submit documents and poll for results without blocking requests. Comprehensive API documentation was generated using Swagger/OpenAPI standards, facilitating integration and third-party extension.
+The REST API is fully implemented and reachable, covering registration, verification, JWT login/refresh, profile management, classroom and assignment CRUD, join requests, submission handling, AI analysis (\texttt{/api/analyze/}), source verification (\texttt{/api/verify-sources/}), and batch/per-assignment plagiarism-forensics reporting. The analysis endpoint returns a responsive result by performing AI-text scoring only, while source verification runs separately in a background thread and is polled by the frontend every three seconds for up to eight attempts.
 
 \section{Model Deployment}
 
 \subsection{AI Text Detection Model}
 
-The Multinomial Naive Bayes classifier was trained on the DAIGT v2 dataset using TF-IDF features. The model achieved exceptional performance metrics on the held-out test set: accuracy of 92\%, precision of 0.89, recall of 0.93, and an F1-score of 0.90. ROC AUC reached 0.9945 and PR AUC reached 0.9923, demonstrating clear class separation and robust performance across varying confidence thresholds. The model correctly identifies AI-generated text while minimizing false positives, critical for academic integrity applications.
+The joblib-based detector is deployed and integrated into the submission-analysis pipeline. For each analyzed submission, it produces per-chunk probabilities, an AI-like flag per chunk, total and AI-flagged chunk counts, an average probability, an overall AI-text percentage, and a summary verdict, all persisted as a \texttt{DetectionResult} JSON record. The frontend renders these as green/amber/red chunk bars, allowing a teacher to inspect flagged evidence directly rather than relying on a single aggregate output.
 
 \subsection{Optical Character Recognition Integration}
 
-The OCR module successfully integrates Tesseract OCR with deep learning-based Handwritten Text Recognition (HTR) to digitize diverse document formats. Scanned PDF pages and handwritten submission images are automatically detected, preprocessed for noise reduction, and converted to machine-readable text with an average accuracy of 94\% on standard academic documents. The digitized text is then fed into the same AI detection and plagiarism analysis pipeline, ensuring consistent treatment of all submission types.
+The OCR pipeline -- Tesseract, EasyOCR, the TrOCR handwritten-text model, and optional Google Cloud Vision -- is deployed and successfully extracts text from scanned PDFs and image-based submissions after preprocessing (grayscale conversion, contrast enhancement, thresholding, upscaling, sharpening). Extracted text is cached in \texttt{Submission.extracted\_text} and fed into the same AI-detection and similarity pipeline used for digitally submitted text, giving consistent downstream treatment regardless of submission format.
 
 \subsection{Plagiarism Verification Pipeline}
 
-The plagiarism verification module leverages the Firecrawl Search API to retrieve potentially matching sources from the web. Retrieved documents are processed to extract text, which is then compared against the submitted document using SequenceMatcher and fuzzy string matching algorithms. Similarity scores identify sections with high overlap, providing educators with specific source citations and matched text segments.
+The similarity engine is deployed and computes, for every submission pair, Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity, combined into an overall similarity score as their mean. Chunk-level matches are also recorded, allowing a strong local match to be surfaced even when whole-document similarity is low. Source verification is deployed as an on-demand service querying Bing, DuckDuckGo, Google, and Firecrawl-related paths, returning candidate URLs and match-confidence scores. Metadata forensics is deployed and reads DOCX/PDF author, title, creator, timestamps, edit/save/revision counts, and computes a SHA-1 origin-signature hash and a weighted 0--1 originality score used to cluster submissions sharing an origin signature or exceeding a 0.25 similarity threshold.
 
 \section{Testing and Evaluation}
 
-\subsection{Classifier Performance}
+\subsection{Backend Test Coverage}
 
-Comprehensive testing on the DAIGT v2 test set confirmed the model's robustness. The classifier correctly identifies 92\% of documents (both human and AI-generated), with a false positive rate of 11\% and a false negative rate of 7\%. Cross-validation across multiple train-test splits yielded consistent results, confirming the model generalizes well to unseen data. The system performs equally well on documents from different AI models (GPT-3.5, GPT-4, Claude, Gemini), indicating the learned patterns capture universal characteristics of machine-generated text.
+Automated backend tests in \texttt{apps/analysis\_engine/tests.py} confirm correct behavior of the following components: similarity report construction, highlighting and chunk comparison, chunk splitting and merging, document-forensics output generation, OCR result selection, file-like text extraction, OCR text normalization, cached-text reuse, and analysis of long OCR-derived text. All tested components pass, validating the analysis pipeline independent of the user interface.
 
-\subsection{OCR Accuracy}
+\subsection{OCR Extraction Results}
 
-OCR performance was evaluated on a dataset of 200 scanned academic documents, achieving 94\% character-level accuracy and 91\% word-level accuracy on documents with standard resolution (200 dpi or higher). The system gracefully degrades on lower-quality scans but remains usable down to 150 dpi. Handwritten text recognition achieved 87\% accuracy on typed handwriting and 79\% on cursive handwriting, with performance varying based on handwriting legibility and document quality.
+The OCR pipeline correctly extracts text across the supported formats (PDF, DOCX, PPTX, HTML, and image files) and correctly falls back between embedded-text extraction and image-based OCR engines depending on file type. Preprocessing steps visibly improve extraction on lower-quality scans. Formal word-error-rate or character-accuracy benchmarking against a labeled ground-truth set has not yet been performed.
 
-\subsection{System Load Testing}
+\subsection{System Integration Results}
 
-The deployed system was load-tested to verify scalability. The backend successfully handled 50 concurrent document submissions without significant latency degradation. Average response time for document analysis (excluding OCR processing, which depends on image quality) remained under 60 seconds per submission. The system can process approximately 100 documents per hour under steady-state conditions, sufficient for mid-sized academic institutions.
+End-to-end functional testing confirms the complete workflow operates correctly: account registration through verification, classroom creation and join-request approval, assignment creation, submission upload, AI-report generation, on-demand source verification with background polling, and batch/assignment-level metadata-forensics reporting with cluster, matrix, heatmap, and scatter-plot visualization. The separation of the fast analysis endpoint from the slower, explicitly triggered source-verification step keeps the submission-review flow responsive.
 
-\subsection{User Acceptance}
+\subsection{Evidence Presentation Results}
 
-Pilot testing with 15 faculty members and 50 students confirmed that the user interface is intuitive and that the system produces actionable results. Teachers reported confidence in the AI detection results and found the highlighted sections and source citations helpful for follow-up academic integrity conversations. Students found the dashboard clear and appreciated receiving immediate feedback on submission status. No critical usability issues were identified during pilot testing.
-
+The chunk-level probability bars, similarity heatmaps, and cluster views give a teacher visibility into the evidence behind each flag rather than a single opaque score. Origin-signature hash matches and the weighted originality score are surfaced as supporting evidence rather than a final verdict, consistent with the system's role as an originality-assistance tool that flags submissions for instructor review.
 \chapter{Conclusion}
 
 This project successfully developed \textit{OriginalityGuard}, a web-based academic originality-assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.

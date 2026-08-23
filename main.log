@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.10)  23 AUG 2026 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.10)  23 AUG 2026 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -777,7 +777,7 @@ Package hyperref Info: Link coloring ON on input line 110.
 \openout2 = `titlepage.aux'.
 
  (titlepage.tex
-<Images/image.png, id=267, 146.949pt x 65.5248pt>
+<Images/image.png, id=287, 146.949pt x 65.5248pt>
 File: Images/image.png Graphic file (type png)
 <use Images/image.png>
 Package pdftex.def Info: Images/image.png  used on input line 6.
@@ -825,138 +825,153 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  2.
 [4
 
-] [5] [6]
+]
+Overfull \hbox (13.86382pt too wide) in paragraph at lines 333--334
+\T1/ptm/m/n/12 Image pre-pro-cess-ing im-proves the vi-sual qual-ity of in-put doc-u-ments be-fore recog-ni-tion. Grayscale
+ []
+
+[5] [6] [7] [8]
  3.
-<Images/timesched.jpg, id=455, 1607.00375pt x 985.6825pt>
+<Images/timesched.jpg, id=489, 1607.00375pt x 985.6825pt>
 File: Images/timesched.jpg Graphic file (type jpg)
 <use Images/timesched.jpg>
-Package pdftex.def Info: Images/timesched.jpg  used on input line 373.
+Package pdftex.def Info: Images/timesched.jpg  used on input line 397.
 (pdftex.def)             Requested size: 452.97406pt x 277.83917pt.
-[7
+[9
 
  <./Images/timesched.jpg>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 404.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 428.
  (C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [8]
-<Images/1.png, id=466, 697.60625pt x 555.07375pt>
+) [10]
+<Images/1.png, id=499, 697.60625pt x 555.07375pt>
 File: Images/1.png Graphic file (type png)
 <use Images/1.png>
-Package pdftex.def Info: Images/1.png  used on input line 483.
+Package pdftex.def Info: Images/1.png  used on input line 507.
 (pdftex.def)             Requested size: 247.51889pt x 196.94667pt.
-<Images/2.png, id=467, 564.1075pt x 483.8075pt>
+<Images/2.png, id=500, 564.1075pt x 483.8075pt>
 File: Images/2.png Graphic file (type png)
 <use Images/2.png>
-Package pdftex.def Info: Images/2.png  used on input line 491.
+Package pdftex.def Info: Images/2.png  used on input line 514.
 (pdftex.def)             Requested size: 229.6329pt x 196.94496pt.
-<Images/3.png, id=468, 693.59125pt x 529.98pt>
+<Images/3.png, id=501, 693.59125pt x 529.98pt>
 File: Images/3.png Graphic file (type png)
 <use Images/3.png>
-Package pdftex.def Info: Images/3.png  used on input line 499.
+Package pdftex.def Info: Images/3.png  used on input line 522.
 (pdftex.def)             Requested size: 257.74657pt x 196.94672pt.
-Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on input line 504.
- [9] [10 <./Images/1.png> <./Images/2.png> <./Images/3.png>]
-<Images/4.png, id=481, 992.70876pt x 692.5875pt>
+Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on input line 527.
+ [11] [12 <./Images/1.png> <./Images/2.png> <./Images/3.png>]
+<Images/4.png, id=514, 992.70876pt x 692.5875pt>
 File: Images/4.png Graphic file (type png)
 <use Images/4.png>
-Package pdftex.def Info: Images/4.png  used on input line 513.
+Package pdftex.def Info: Images/4.png  used on input line 536.
 (pdftex.def)             Requested size: 282.28874pt x 196.94562pt.
-<Images/5.png, id=482, 710.655pt x 555.07375pt>
+<Images/5.png, id=515, 710.655pt x 555.07375pt>
 File: Images/5.png Graphic file (type png)
 <use Images/5.png>
-Package pdftex.def Info: Images/5.png  used on input line 521.
+Package pdftex.def Info: Images/5.png  used on input line 544.
 (pdftex.def)             Requested size: 252.14874pt x 196.94667pt.
-<Images/6.jpg, id=483, 1365.1pt x 785.93625pt>
+<Images/6.jpg, id=516, 1365.1pt x 785.93625pt>
 File: Images/6.jpg Graphic file (type jpg)
 <use Images/6.jpg>
-Package pdftex.def Info: Images/6.jpg  used on input line 529.
+Package pdftex.def Info: Images/6.jpg  used on input line 552.
 (pdftex.def)             Requested size: 275.38976pt x 158.55159pt.
- [11 <./Images/4.png> <./Images/5.png> <./Images/6.jpg>]
+ [13 <./Images/4.png> <./Images/5.png> <./Images/6.jpg>]
  4.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 550.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 573.
 (C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [12
+) [14
 
 
 ]
-Overfull \hbox (4.01018pt too wide) in paragraph at lines 594--595
+Overfull \hbox (4.01018pt too wide) in paragraph at lines 617--618
 []\T1/ptm/m/n/12 The sys-tem must ex-e-cute se-man-tic search and re-trieval across aca-demic and web databases
  []
 
-[13]
-Overfull \hbox (2.36656pt too wide) in paragraph at lines 648--649
+[15]
+Overfull \hbox (2.36656pt too wide) in paragraph at lines 671--672
 []\T1/ptm/m/n/12 The user in-ter-face must be fully re-spon-sive and ac-ces-si-ble across all mod-ern web browsers
  []
 
-[14] [15]
-<Images/usecase.png, id=511, 1028.84375pt x 1540.75626pt>
+[16] [17]
+<Images/usecase.png, id=544, 1026.83624pt x 1542.76375pt>
 File: Images/usecase.png Graphic file (type png)
 <use Images/usecase.png>
-Package pdftex.def Info: Images/usecase.png  used on input line 697.
-(pdftex.def)             Requested size: 452.9679pt x 678.35803pt.
- [16]
-Overfull \vbox (24.89365pt too high) has occurred while \output is active []
+Package pdftex.def Info: Images/usecase.png  used on input line 720.
+(pdftex.def)             Requested size: 452.9679pt x 680.56017pt.
+ [18]
+Overfull \vbox (27.09578pt too high) has occurred while \output is active []
 
- [17 <./Images/usecase.png>]
-<Images/DFD0.png, id=520, 1111.90407pt x 688.82344pt>
+ [19 <./Images/usecase.png>]
+<Images/DFD0.png, id=553, 1111.90407pt x 688.82344pt>
 File: Images/DFD0.png Graphic file (type png)
 <use Images/DFD0.png>
-Package pdftex.def Info: Images/DFD0.png  used on input line 714.
+Package pdftex.def Info: Images/DFD0.png  used on input line 739.
 (pdftex.def)             Requested size: 452.9679pt x 280.61162pt.
- [18 <./Images/DFD0.png>]
-<Images/DFD1.png, id=526, 1185.42876pt x 1336.995pt>
+ [20]
+<Images/DFD1.png, id=559, 646.66594pt x 733.23938pt>
 File: Images/DFD1.png Graphic file (type png)
 <use Images/DFD1.png>
-Package pdftex.def Info: Images/DFD1.png  used on input line 729.
-(pdftex.def)             Requested size: 452.96378pt x 583.54662pt.
- [19]
-<Images/system_flowchart.png, id=531, 1541.76pt x 1027.84pt>
+Package pdftex.def Info: Images/DFD1.png  used on input line 754.
+(pdftex.def)             Requested size: 452.96895pt x 583.57146pt.
+ [21 <./Images/DFD0.png>] [22 <./Images/DFD1.png>]
+<Images/system_flowchart.png, id=570, 1541.76pt x 1027.84pt>
 File: Images/system_flowchart.png Graphic file (type png)
 <use Images/system_flowchart.png>
-Package pdftex.def Info: Images/system_flowchart.png  used on input line 738.
-(pdftex.def)             Requested size: 452.95676pt x 301.97118pt.
- [20 <./Images/DFD1.png (PNG copy)>] [21 <./Images/system_flowchart.png>]
-<Images/mlWorkflow.png, id=541, 1026.83624pt x 1542.76375pt>
+Package pdftex.def Info: Images/system_flowchart.png  used on input line 769.
+(pdftex.def)             Requested size: 452.95676pt x 547.07378pt.
+ [23] [24 <./Images/system_flowchart.png>] [25]
+<Images/mlWorkflow.png, id=583, 1026.83624pt x 1542.76375pt>
 File: Images/mlWorkflow.png Graphic file (type png)
 <use Images/mlWorkflow.png>
-Package pdftex.def Info: Images/mlWorkflow.png  used on input line 759.
+Package pdftex.def Info: Images/mlWorkflow.png  used on input line 791.
 (pdftex.def)             Requested size: 407.66833pt x 612.50415pt.
- [22] [23 <./Images/mlWorkflow.png (PNG copy)>] [24]
+ [26] [27 <./Images/mlWorkflow.png (PNG copy)>] [28]
  5.
 
-Overfull \hbox (14.94331pt too wide) in paragraph at lines 773--774
-\T1/ptm/m/n/12 duc-tion sta-tus with all core com-po-nents^^Vfrontend, back-end, API, and OCR mod-ule^^Vsuccessfully
+Overfull \hbox (44.16559pt too wide) in paragraph at lines 811--812
+\T1/ptm/m/n/12 The AI-text de-tec-tor op-er-ates on the per-sisted model \T1/pcr/m/n/12 ml_models/originality_model.joblib\T1/ptm/m/n/12 ,
  []
 
 
-Overfull \hbox (0.3632pt too wide) in paragraph at lines 793--794
-\T1/ptm/m/n/12 The back-end was im-ple-mented us-ing Django frame-work with a Post-greSQL re-la-tional database.
+Overfull \hbox (37.31277pt too wide) in paragraph at lines 825--826
+\T1/ptm/m/n/12 The Django REST Frame-work back-end is or-ga-nized into three func-tion-ing apps -- \T1/pcr/m/n/12 authentication\T1/ptm/m/n/12 ,
  []
 
-[25
+[29
 
-] [26] [27]
+]
+Overfull \hbox (2.70532pt too wide) in paragraph at lines 829--830
+\T1/ptm/m/n/12 han-dling, AI anal-y-sis (\T1/pcr/m/n/12 /api/analyze/\T1/ptm/m/n/12 ), source ver-i-fi-ca-tion (\T1/pcr/m/n/12 /api/verify-sources/\T1/ptm/m/n/12 ),
+ []
+
+
+Overfull \hbox (32.8612pt too wide) in paragraph at lines 839--840
+\T1/ptm/m/n/12 thresh-old-ing, up-scal-ing, sharp-en-ing). Ex-tracted text is cached in \T1/pcr/m/n/12 Submission.extracted_text
+ []
+
+[30] [31]
  6.
 
-Overfull \hbox (18.7347pt too wide) in paragraph at lines 833--834
+Overfull \hbox (18.7347pt too wide) in paragraph at lines 864--865
 \T1/ptm/m/n/12 This project suc-cess-fully de-vel-oped \T1/ptm/m/it/12 Orig-i-nal-i-ty-Guard\T1/ptm/m/n/12 , a web-based aca-demic originality-assistance
  []
 
 
-Overfull \hbox (9.85495pt too wide) in paragraph at lines 839--840
+Overfull \hbox (9.85495pt too wide) in paragraph at lines 870--871
 []\T1/ptm/m/n/12 Overall, Orig-i-nal-i-ty-Guard demon-strates that class-room work-flows, AI-text in-di-ca-tors, plagiarism-
  []
 
-[28
+[32
 
 ]
  7.
-[29
+[33
 
-] [30] (main.bbl [31
+] [34] (main.bbl [35
 
-]) [32
+]) [36
 
 ] (main.aux (titlepage.aux))
  ***********
@@ -964,20 +979,20 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 996B6F3A2C0C265CDD99477FCA979BBD;10606.
+(rerunfilecheck)             Checksum: B12FFE85982BAD22E86A297AA238269F;11973.
  ) 
 Here is how much of TeX's memory you used:
- 27271 strings out of 467510
- 521005 string characters out of 5407786
- 928742 words of memory out of 5000000
- 55892 multiletter control sequences out of 15000+600000
+ 27285 strings out of 467510
+ 521183 string characters out of 5407786
+ 929742 words of memory out of 5000000
+ 55897 multiletter control sequences out of 15000+600000
  663181 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,12n,118p,1881b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/A C E R/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (43 pages, 4556429 bytes).
+Output written on main.pdf (47 pages, 2350042 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 606 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 713 PDF objects out of 1000 (max. 8388607)
+ 147 named destinations out of 1000 (max. 500000)
+ 646 words of extra memory for PDF output out of 10000 (max. 10000000)
 
