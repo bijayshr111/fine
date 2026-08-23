@@ -1,0 +1,62 @@
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Page of Approval}{ii}{chapter*.1}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Copyright}{iii}{chapter*.2}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Acknowledgements}{iv}{chapter*.3}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{v}{chapter*.4}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Figures}{ix}{chapter*.4}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Tables}{x}{chapter*.4}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }List of Abbreviations}{xi}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter*.6}%
+\contentsline {section}{\numberline {1.1}Background}{1}{section*.7}%
+\contentsline {section}{\numberline {1.2}Problem Statement}{1}{section*.8}%
+\contentsline {section}{\numberline {1.3}Objectives}{2}{section*.9}%
+\contentsline {subsection}{\numberline {1.3.1}General Objective}{2}{subsection*.10}%
+\contentsline {subsection}{\numberline {1.3.2}Specific Objectives}{2}{subsection*.15}%
+\contentsline {section}{\numberline {1.4}Scope}{2}{section*.16}%
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter*.21}%
+\contentsline {section}{\numberline {2.1}Related Work}{4}{section*.22}%
+\contentsline {section}{\numberline {2.2}Related Theory}{4}{section*.23}%
+\contentsline {subsection}{\numberline {2.2.1}Stylometric Analysis}{4}{subsection*.24}%
+\contentsline {subsection}{\numberline {2.2.2}Neural Networks for Recognition (OCR and HTR)}{5}{subsection*.25}%
+\contentsline {subsection}{\numberline {2.2.3}Mathematical Foundation}{5}{subsection*.26}%
+\contentsline {subsection}{\numberline {2.2.4}Metadata Forensic Analysis}{6}{subsection*.31}%
+\contentsline {chapter}{\numberline {3}System Design}{7}{chapter*.32}%
+\contentsline {section}{\numberline {3.1}Requirement Analysis}{7}{section*.33}%
+\contentsline {subsection}{\numberline {3.1.1}Functional Requirements}{7}{subsection*.34}%
+\contentsline {subsection}{\numberline {3.1.2}Non-Functional Requirements}{8}{subsection*.35}%
+\contentsline {section}{\numberline {3.2}Website Development for End Users}{9}{section*.36}%
+\contentsline {subsection}{\numberline {3.2.1}System Architecture}{9}{subsection*.37}%
+\contentsline {subsection}{\numberline {3.2.2}User Authentication and Security}{10}{subsection*.38}%
+\contentsline {subsection}{\numberline {3.2.3}Functional Workflow}{10}{subsection*.39}%
+\contentsline {section}{\numberline {3.3}Proposed System Design}{11}{section*.44}%
+\contentsline {subsection}{\numberline {3.3.1}Use Case Diagram}{11}{subsection*.45}%
+\contentsline {subsection}{\numberline {3.3.2}Data Flow Diagram}{12}{subsection*.47}%
+\contentsline {subsection}{\numberline {3.3.3}System Flowchart}{15}{subsection*.50}%
+\contentsline {subsection}{\numberline {3.3.4}Data Preparation and Machine Learning Workflow}{16}{subsection*.52}%
+\contentsline {chapter}{\numberline {4}Methodology}{19}{chapter*.54}%
+\contentsline {section}{\numberline {4.1}Implementation detail}{19}{section*.55}%
+\contentsline {subsection}{\numberline {4.1.1}Frontend Development}{19}{subsection*.56}%
+\contentsline {subsection}{\numberline {4.1.2}Backend Development}{19}{subsection*.57}%
+\contentsline {subsection}{\numberline {4.1.3}Generative AI Text Detection Module}{19}{subsection*.58}%
+\contentsline {subsection}{\numberline {4.1.4}Source Verification and Forensic Analysis}{20}{subsection*.59}%
+\contentsline {subsection}{\numberline {4.1.5}Deployment Strategy}{20}{subsection*.60}%
+\contentsline {chapter}{\numberline {5}Results and Discussion}{23}{chapter*.63}%
+\contentsline {section}{\numberline {5.1}Experiment Setup}{23}{section*.64}%
+\contentsline {subsection}{\numberline {5.1.1}Dataset and Preprocessing}{23}{subsection*.65}%
+\contentsline {subsection}{\numberline {5.1.2}Feature Extraction}{23}{subsection*.66}%
+\contentsline {section}{\numberline {5.2}Software Development Approach}{23}{section*.67}%
+\contentsline {subsection}{\numberline {5.2.1}Frontend Implementation}{23}{subsection*.68}%
+\contentsline {subsection}{\numberline {5.2.2}Backend Architecture}{24}{subsection*.69}%
+\contentsline {subsection}{\numberline {5.2.3}API Development}{24}{subsection*.70}%
+\contentsline {section}{\numberline {5.3}Model Deployment}{24}{section*.71}%
+\contentsline {subsection}{\numberline {5.3.1}AI Text Detection Model}{24}{subsection*.72}%
+\contentsline {subsection}{\numberline {5.3.2}Optical Character Recognition Integration}{24}{subsection*.73}%
+\contentsline {subsection}{\numberline {5.3.3}Plagiarism Verification Pipeline}{24}{subsection*.74}%
+\contentsline {section}{\numberline {5.4}Testing and Evaluation}{25}{section*.75}%
+\contentsline {subsection}{\numberline {5.4.1}Classifier Performance}{25}{subsection*.76}%
+\contentsline {subsection}{\numberline {5.4.2}OCR Accuracy}{25}{subsection*.77}%
+\contentsline {subsection}{\numberline {5.4.3}System Load Testing}{25}{subsection*.78}%
+\contentsline {subsection}{\numberline {5.4.4}User Acceptance}{25}{subsection*.79}%
+\contentsline {chapter}{\numberline {6}Conclusions}{26}{chapter*.80}%
+\contentsline {chapter}{\numberline {7}Limitations and Future Enhancement}{27}{chapter*.81}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Appendices}{28}{chapter*.82}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }References}{28}{chapter*.82}%

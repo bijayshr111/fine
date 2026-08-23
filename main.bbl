@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{schulz}
+A.~Schulz et~al.
+\newblock Hierarchical stylometric analysis for authorial intent
+  identification.
+\newblock {\em Journal of Academic Integrity Research}, 2024.
+
+\bibitem{vaswani}
+Ashish Vaswani et~al.
+\newblock Attention is all you need.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem{guo}
+B.~Guo et~al.
+\newblock Detecting synthetic text via perplexity and burstiness metrics in
+  {LLMs}.
+\newblock In {\em International Conference on Machine Learning Applications},
+  2025.
+
+\bibitem{smith}
+J.~Smith and R.~Jones.
+\newblock Robust document digitization: Integrating {OCR} and {HTR} for
+  academic forensics.
+\newblock {\em Journal of Digital Archiving and Document Processing}, 2023.
+
+\bibitem{wang}
+Y.~Wang et~al.
+\newblock Digital forensic frameworks for metadata integrity in {OOXML} and
+  {PDF} documents.
+\newblock {\em IEEE Transactions on Information Forensics and Security}, 2025.
+
+\end{thebibliography}
