@@ -10,63 +10,64 @@
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section*.8}%
 \contentsline {section}{\numberline {1.3}Objectives}{2}{section*.9}%
 \contentsline {subsection}{\numberline {1.3.1}General Objective}{2}{subsection*.10}%
-\contentsline {subsection}{\numberline {1.3.2}Specific Objectives}{2}{subsection*.15}%
-\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter*.27}%
-\contentsline {section}{\numberline {2.1}Related Work}{4}{section*.28}%
-\contentsline {section}{\numberline {2.2}Related Theory}{4}{section*.29}%
-\contentsline {subsection}{\numberline {2.2.1}Stylometric Analysis}{4}{subsection*.30}%
-\contentsline {subsection}{\numberline {2.2.2}Neural Networks for Recognition (OCR and HTR)}{5}{subsection*.31}%
-\contentsline {subsection}{\numberline {2.2.3}Optical Character Recognition}{5}{subsection*.32}%
-\contentsline {subsection}{\numberline {2.2.4}Image Preprocessing for OCR}{5}{subsection*.33}%
-\contentsline {subsection}{\numberline {2.2.5}Handwritten Text Recognition}{5}{subsection*.34}%
-\contentsline {subsection}{\numberline {2.2.6}Text Extraction Confidence and Analysis Quality}{6}{subsection*.35}%
-\contentsline {subsection}{\numberline {2.2.7}Similarity and Document Provenance Theory}{6}{subsection*.36}%
-\contentsline {subsection}{\numberline {2.2.8}Mathematical Foundation}{6}{subsection*.37}%
-\contentsline {subsection}{\numberline {2.2.9}Metadata Forensic Analysis}{7}{subsection*.42}%
-\contentsline {chapter}{\numberline {3}Methodology}{9}{chapter*.43}%
-\contentsline {section}{\numberline {3.1}Time Schedule}{9}{section*.44}%
-\contentsline {section}{\numberline {3.2}Implementation detail}{10}{section*.46}%
-\contentsline {subsection}{\numberline {3.2.1}Frontend Development}{10}{subsection*.47}%
-\contentsline {subsection}{\numberline {3.2.2}Backend Development}{10}{subsection*.48}%
-\contentsline {subsection}{\numberline {3.2.3}Generative AI Text Detection Module}{10}{subsection*.49}%
-\contentsline {subsection}{\numberline {3.2.4}OCR and Document Extraction Module}{11}{subsection*.50}%
-\contentsline {subsection}{\numberline {3.2.5}Submission Similarity and Metadata Forensics}{11}{subsection*.51}%
-\contentsline {subsection}{\numberline {3.2.6}File-level Implementation Structure}{12}{subsection*.53}%
-\contentsline {subsection}{\numberline {3.2.7}Deployment Strategy}{12}{subsection*.55}%
-\contentsline {chapter}{\numberline {4}System Design}{15}{chapter*.58}%
-\contentsline {section}{\numberline {4.1}Requirement Analysis}{15}{section*.59}%
-\contentsline {subsection}{\numberline {4.1.1}Functional Requirements}{15}{subsection*.60}%
-\contentsline {subsection}{\numberline {4.1.2}Non-Functional Requirements}{16}{subsection*.61}%
-\contentsline {section}{\numberline {4.2}Website Development for End Users}{17}{section*.62}%
-\contentsline {subsection}{\numberline {4.2.1}System Architecture}{17}{subsection*.63}%
-\contentsline {subsection}{\numberline {4.2.2}User Authentication and Security}{18}{subsection*.64}%
-\contentsline {subsection}{\numberline {4.2.3}Functional Workflow}{18}{subsection*.65}%
-\contentsline {section}{\numberline {4.3}Proposed System Design}{20}{section*.70}%
-\contentsline {subsection}{\numberline {4.3.1}Use Case Diagram}{20}{subsection*.71}%
-\contentsline {subsection}{\numberline {4.3.2}Data Flow Diagram}{22}{subsection*.73}%
-\contentsline {subsection}{\numberline {4.3.3}Technology stack used}{26}{subsection*.77}%
-\contentsline {subsection}{\numberline {4.3.4}System Flowchart}{27}{subsection*.79}%
-\contentsline {subsection}{\numberline {4.3.5}Data Preparation and Machine Learning Workflow}{28}{subsection*.81}%
-\contentsline {chapter}{\numberline {5}Results and Discussion}{32}{chapter*.83}%
-\contentsline {section}{\numberline {5.1}Experiment Setup}{32}{section*.84}%
-\contentsline {subsection}{\numberline {5.1.1}Dataset and Preprocessing}{32}{subsection*.85}%
-\contentsline {subsection}{\numberline {5.1.2}Feature Extraction}{32}{subsection*.86}%
-\contentsline {section}{\numberline {5.2}Software Development Approach}{32}{section*.87}%
-\contentsline {subsection}{\numberline {5.2.1}Frontend Implementation}{32}{subsection*.88}%
-\contentsline {subsection}{\numberline {5.2.2}Backend Architecture}{32}{subsection*.89}%
-\contentsline {subsection}{\numberline {5.2.3}API Development}{33}{subsection*.90}%
-\contentsline {section}{\numberline {5.3}Model Deployment}{33}{section*.91}%
-\contentsline {subsection}{\numberline {5.3.1}AI Text Detection Model}{33}{subsection*.92}%
-\contentsline {subsection}{\numberline {5.3.2}Optical Character Recognition Integration}{33}{subsection*.93}%
-\contentsline {subsection}{\numberline {5.3.3}Plagiarism Verification Pipeline}{33}{subsection*.94}%
-\contentsline {section}{\numberline {5.4}Testing and Evaluation}{34}{section*.95}%
-\contentsline {subsection}{\numberline {5.4.1}Backend Test Coverage}{34}{subsection*.96}%
-\contentsline {subsection}{\numberline {5.4.2}OCR Extraction Results}{34}{subsection*.97}%
-\contentsline {subsection}{\numberline {5.4.3}System Integration Results}{34}{subsection*.98}%
-\contentsline {subsection}{\numberline {5.4.4}Evidence Presentation Results}{34}{subsection*.99}%
-\contentsline {chapter}{\numberline {6}Conclusion}{35}{chapter*.100}%
-\contentsline {chapter}{\numberline {7}Limitations and Future Enhancements}{36}{chapter*.101}%
-\contentsline {section}{\numberline {7.1}Limitations}{36}{section*.102}%
-\contentsline {section}{\numberline {7.2}Future Enhancements}{36}{section*.103}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }Appendices}{38}{chapter*.104}%
-\contentsline {chapter}{\hbox to\@tempdima {\hfil }References}{38}{chapter*.104}%
+\contentsline {subsection}{\numberline {1.3.2}Specific Objectives}{2}{subsection*.16}%
+\contentsline {section}{\numberline {1.4}Scope}{3}{section*.21}%
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter*.26}%
+\contentsline {section}{\numberline {2.1}Related Work}{4}{section*.27}%
+\contentsline {section}{\numberline {2.2}Related Theory}{4}{section*.28}%
+\contentsline {subsection}{\numberline {2.2.1}Stylometric Analysis}{4}{subsection*.29}%
+\contentsline {subsection}{\numberline {2.2.2}Neural Networks for Recognition (OCR and HTR)}{5}{subsection*.30}%
+\contentsline {subsection}{\numberline {2.2.3}Optical Character Recognition}{5}{subsection*.31}%
+\contentsline {subsection}{\numberline {2.2.4}Image Preprocessing for OCR}{5}{subsection*.32}%
+\contentsline {subsection}{\numberline {2.2.5}Handwritten Text Recognition}{5}{subsection*.33}%
+\contentsline {subsection}{\numberline {2.2.6}Text Extraction Confidence and Analysis Quality}{6}{subsection*.34}%
+\contentsline {subsection}{\numberline {2.2.7}Similarity and Document Provenance Theory}{6}{subsection*.35}%
+\contentsline {subsection}{\numberline {2.2.8}Mathematical Foundation}{6}{subsection*.36}%
+\contentsline {subsection}{\numberline {2.2.9}Metadata Forensic Analysis}{7}{subsection*.41}%
+\contentsline {chapter}{\numberline {3}Methodology}{9}{chapter*.42}%
+\contentsline {section}{\numberline {3.1}Time Schedule}{9}{section*.43}%
+\contentsline {section}{\numberline {3.2}Implementation detail}{10}{section*.45}%
+\contentsline {subsection}{\numberline {3.2.1}Frontend Development}{10}{subsection*.46}%
+\contentsline {subsection}{\numberline {3.2.2}Backend Development}{10}{subsection*.47}%
+\contentsline {subsection}{\numberline {3.2.3}Generative AI Text Detection Module}{10}{subsection*.48}%
+\contentsline {subsection}{\numberline {3.2.4}OCR and Document Extraction Module}{11}{subsection*.49}%
+\contentsline {subsection}{\numberline {3.2.5}Submission Similarity and Metadata Forensics}{11}{subsection*.50}%
+\contentsline {subsection}{\numberline {3.2.6}File-level Implementation Structure}{12}{subsection*.52}%
+\contentsline {subsection}{\numberline {3.2.7}Deployment Strategy}{12}{subsection*.54}%
+\contentsline {chapter}{\numberline {4}System Design}{15}{chapter*.57}%
+\contentsline {section}{\numberline {4.1}Requirement Analysis}{15}{section*.58}%
+\contentsline {subsection}{\numberline {4.1.1}Functional Requirements}{15}{subsection*.59}%
+\contentsline {subsection}{\numberline {4.1.2}Non-Functional Requirements}{16}{subsection*.60}%
+\contentsline {section}{\numberline {4.2}Website Development for End Users}{17}{section*.61}%
+\contentsline {subsection}{\numberline {4.2.1}System Architecture}{17}{subsection*.62}%
+\contentsline {subsection}{\numberline {4.2.2}User Authentication and Security}{18}{subsection*.63}%
+\contentsline {subsection}{\numberline {4.2.3}Functional Workflow}{18}{subsection*.64}%
+\contentsline {section}{\numberline {4.3}Proposed System Design}{20}{section*.69}%
+\contentsline {subsection}{\numberline {4.3.1}Use Case Diagram}{20}{subsection*.70}%
+\contentsline {subsection}{\numberline {4.3.2}Data Flow Diagram}{22}{subsection*.72}%
+\contentsline {subsection}{\numberline {4.3.3}Technology stack used}{26}{subsection*.76}%
+\contentsline {subsection}{\numberline {4.3.4}System Flowchart}{27}{subsection*.78}%
+\contentsline {subsection}{\numberline {4.3.5}Data Preparation and Machine Learning Workflow}{28}{subsection*.80}%
+\contentsline {chapter}{\numberline {5}Results and Discussion}{32}{chapter*.82}%
+\contentsline {section}{\numberline {5.1}Experiment Setup}{32}{section*.83}%
+\contentsline {subsection}{\numberline {5.1.1}Dataset and Preprocessing}{32}{subsection*.84}%
+\contentsline {subsection}{\numberline {5.1.2}Feature Extraction}{32}{subsection*.85}%
+\contentsline {section}{\numberline {5.2}Software Development Approach}{32}{section*.86}%
+\contentsline {subsection}{\numberline {5.2.1}Frontend Implementation}{32}{subsection*.87}%
+\contentsline {subsection}{\numberline {5.2.2}Backend Architecture}{32}{subsection*.88}%
+\contentsline {subsection}{\numberline {5.2.3}API Development}{33}{subsection*.89}%
+\contentsline {section}{\numberline {5.3}Model Deployment}{33}{section*.90}%
+\contentsline {subsection}{\numberline {5.3.1}AI Text Detection Model}{33}{subsection*.91}%
+\contentsline {subsection}{\numberline {5.3.2}Optical Character Recognition Integration}{33}{subsection*.92}%
+\contentsline {subsection}{\numberline {5.3.3}Plagiarism Verification Pipeline}{33}{subsection*.93}%
+\contentsline {section}{\numberline {5.4}Testing and Evaluation}{34}{section*.94}%
+\contentsline {subsection}{\numberline {5.4.1}Backend Test Coverage}{34}{subsection*.95}%
+\contentsline {subsection}{\numberline {5.4.2}OCR Extraction Results}{34}{subsection*.96}%
+\contentsline {subsection}{\numberline {5.4.3}System Integration Results}{34}{subsection*.97}%
+\contentsline {subsection}{\numberline {5.4.4}Evidence Presentation Results}{34}{subsection*.98}%
+\contentsline {chapter}{\numberline {6}Conclusion}{35}{chapter*.99}%
+\contentsline {chapter}{\numberline {7}Limitations and Future Enhancements}{36}{chapter*.100}%
+\contentsline {section}{\numberline {7.1}Limitations}{36}{section*.101}%
+\contentsline {section}{\numberline {7.2}Future Enhancements}{36}{section*.102}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Appendices}{38}{chapter*.103}%
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }References}{38}{chapter*.103}%

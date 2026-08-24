@@ -91,7 +91,17 @@
 
 % Table of contents formatting
 \renewcommand{\cftchapaftersnum}{.}
-\setlength{\cftchapnumwidth}{3em}
+\setlength{\cftchapnumwidth}{2.5em}
+\setlength{\cftsecindent}{1.5em}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecindent}{4em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+\setlength{\cftbeforechapskip}{0.75em}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
 
 % Figure / table / equation numbering reset per chapter
 \counterwithin{figure}{chapter}
@@ -195,9 +205,11 @@ Finally, we extend our heartfelt gratitude to our families, friends, and classma
 % Abstract
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{\numberline{}Abstract}
-Academic integrity is increasingly challenged by the accessibility of generative AI tools capable of producing sophisticated, human-like text, rendering traditional plagiarism detection methods, which rely on direct string matching, largely ineffective. This project presents the design and development of an integrated web-based system for Generative AI Text Detection, Plagiarism Analysis, and Document Forensics, aimed at providing educators with a reliable mechanism to verify the originality and authenticity of academic submissions. The system employs a supervised machine learning pipeline, using TF-IDF feature extraction and a Multinomial Na\"ive Bayes classifier trained on the Kaggle DAIGT v2 dataset, to distinguish between human-authored and AI-generated content. A source verification module, built on the Firecrawl Search API, performs similarity comparison against web-scraped content to detect paraphrased or restructured plagiarism, while a forensic analysis module inspects document metadata to identify tampering. The platform is built on a decoupled architecture, with a React-based frontend providing role-based dashboards for Students, Teachers, and Django Administrators, and a Django backend orchestrating authentication, data storage, and inference. As of the mid-term stage, the classifier has achieved an accuracy of 92\%, a precision of 0.89, and an F1-score of 0.90 on the detection task, and the core authentication, dashboard, and backend modules have been implemented. Remaining work includes integrating live analysis APIs into the frontend, extending forensic and OCR/HTR capabilities, and deploying the system with containerized infrastructure. The completed system is expected to offer a scalable, accurate, and transparent tool for upholding academic integrity in educational institutions.
+Academic integrity in educational institutions is increasingly challenged by AI-assisted writing, paraphrased content, and the limitations of conventional plagiarism detection methods. This project presents OriginalityGuard, an integrated web-based originality-assistance system designed to help instructors review and investigate potentially problematic academic submissions using multiple sources of evidence. The system combines document text extraction and OCR, AI-text probability analysis, online source verification, pairwise submission similarity analysis, and document metadata forensics. AI-text analysis evaluates content in chunks and provides probability scores and evidence indicators, while source verification identifies potential online matches. Submission similarity is assessed using Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity. The forensic module analyzes PDF and DOCX metadata to identify potential shared origins and anomalies. The system is implemented using a React frontend, Django REST Framework backend, and PostgreSQL database, with JWT-based authentication and dedicated analysis services. It provides role-based functionality for students and teachers and presents analysis results through reports, visualizations, and supporting evidence. Rather than making automatic plagiarism or AI-use judgments, OriginalityGuard serves as an evidence-based decision-support tool, with instructors retaining responsibility for final interpretation. The completed system provides a unified platform for supporting academic originality assessment and strengthening the review of digital academic submissions.
 
-\vspace{0.5cm}
+Keywords: academic integrity, originality assistance, AI-generated text analysis, plagiarism analysis, document forensics, OCR, TF-IDF, similarity detection
+
+
 \noindent Keywords: \textit{plagiarism detection, generative AI text detection, document forensics, TF-IDF, Naive Bayes, academic integrity}
 
 \newpage
@@ -281,35 +293,32 @@ Consequently, there is a pressing need for a comprehensive system capable of per
 \subsection{General Objective}
 
 \begin{enumerate}[label=\Roman*.]
-\item To implement Optical Character Recognition (OCR) and Handwritten Text Recognition (HTR) modules capable of digitizing and analyzing diverse document.
+\item To design and develop an integrated AI-driven document forensics system for assessing the originality, authenticity, and integrity of academic submissions.
 
-\item To design and deploy an AI-driven detection engine that utilizes stylometric analysis and natural language processing. 
+\item To develop a comprehensive academic integrity platform for detecting potential plagiarism, AI-generated content, and document manipulation.
 
-\item To engineer a forensic analysis module that extracts and examines document metadata, such as creation timestamps and editing history, to verify file authenticity and detect unauthorized tampering.
+\item To automate the analysis and forensic examination of academic documents using artificial intelligence and digital forensic techniques.
 
-\item To build a secure, integrated web application interface that facilitates user authentication, document processing, and the delivery of clear, actionable integrity reports.
+\item To implement an integrated system for analyzing, comparing, and verifying student submissions based on textual content, metadata, authorship characteristics, and document evidence.
+
+\item To develop a secure web-based platform that combines document processing, AI-based analysis, forensic examination, and evidence-based reporting.
 \end{enumerate}
 
 \subsection{Specific Objectives}
 To develop a web application for generative text detection, plagiarism analysis, and document forensics, this project aims to provide an integrated platform that empowers educators and administrators to verify the integrity of student submissions. By implementing a secure, role-based dashboard for Students, Teachers, and Django Admin users, the system facilitates streamlined document management and communication.
 
 \begin{enumerate}[label=\Roman*.]
-\item To build a role-based classroom and assignment management.
+\item To implement a secure, role-based web application for managing classrooms, assignments, and student submissions with appropriate authentication and deadline validation.
 
-\item To support text/file submission with deadline validation.
+\item To develop document processing capabilities using Optical Character Recognition (OCR), Handwritten Text Recognition (HTR), and text extraction techniques for analyzing digital, scanned, and handwritten documents.
 
-\item To extract text from digital and scanned documents.
- 
-\item To provide AI-writing indicators and source evidence.
- 
-\item To compare submissions using several similarity measures.
- 
-\item To inspect metadata for shared origins and anomalies.
- 
-\item To present evidence through reports, charts, tables, and clusters.
+\item To develop an AI-driven analysis engine using Natural Language Processing (NLP), stylometric analysis, and source evidence to identify potential AI-generated writing and assess authorship characteristics.
+
+\item To perform plagiarism and document similarity analysis using multiple similarity measures, along with metadata forensics to identify shared origins, anomalies, editing history, and potential unauthorized document manipulation.
+
 \end{enumerate}
 
-
+\section{Scope}
 The project includes the following scope:
 
 \begin{enumerate}[label=\Roman*.]
@@ -956,7 +965,7 @@ This chapter presents the results of the OriginalityGuard system implementation.
 
 \subsection{Dataset and Preprocessing}
 
-The AI-text detector operates on the persisted model \texttt{ml\_models/originality\_model.joblib}, which is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
+The AI-text detector operates on the persisted model ml\_models/originality\_model.joblib, which is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
 
 \subsection{Feature Extraction}
 
@@ -970,7 +979,9 @@ The React 19 (Vite) frontend delivers a role-based interface with distinct Stude
 
 \subsection{Backend Architecture}
 
-The Django REST Framework backend is organized into three functioning apps -- \texttt{authentication}, \texttt{classroom}, and \texttt{analysis\_engine} -- with role-filtered querysets enforcing that students, teachers, and administrators access only permitted data. Database integrity rules are enforced and confirmed working: unique classroom invite codes, one join request per student per classroom, one submission per student per assignment, and rejection of submission create/update after the assignment deadline.
+The Django REST Framework backend is organized into three functioning apps -- 
+
+\texttt{authentication}, \texttt{classroom}, and \texttt{analysis\_engine} -- with role-filtered querysets enforcing that students, teachers, and administrators access only permitted data. Database integrity rules are enforced and confirmed working: unique classroom invite codes, one join request per student per classroom, one submission per student per assignment, and rejection of submission create/update after the assignment deadline.
 
 \subsection{API Development}
 
@@ -984,7 +995,9 @@ The joblib-based detector is deployed and integrated into the submission-analysi
 
 \subsection{Optical Character Recognition Integration}
 
-The OCR pipeline -- Tesseract, EasyOCR, the TrOCR handwritten-text model, and optional Google Cloud Vision -- is deployed and successfully extracts text from scanned PDFs and image-based submissions after preprocessing (grayscale conversion, contrast enhancement, thresholding, upscaling, sharpening). Extracted text is cached in \texttt{Submission.extracted\_text} and fed into the same AI-detection and similarity pipeline used for digitally submitted text, giving consistent downstream treatment regardless of submission format.
+The OCR pipeline -- Tesseract, EasyOCR, the TrOCR handwritten-text model, and optional Google Cloud Vision -- is deployed and successfully extracts text from scanned PDFs and image-based submissions after preprocessing (grayscale conversion, contrast enhancement, thresholding, upscaling, sharpening). Extracted text is cached in
+
+\texttt{Submission.extracted\_text} and fed into the same AI-detection and similarity pipeline used for digitally submitted text, giving consistent downstream treatment regardless of submission format.
 
 \subsection{Plagiarism Verification Pipeline}
 
@@ -1009,7 +1022,7 @@ End-to-end functional testing confirms the complete workflow operates correctly:
 The chunk-level probability bars, similarity heatmaps, and cluster views give a teacher visibility into the evidence behind each flag rather than a single opaque score. Origin-signature hash matches and the weighted originality score are surfaced as supporting evidence rather than a final verdict, consistent with the system's role as an originality-assistance tool that flags submissions for instructor review.
 \chapter{Conclusion}
 
-This project successfully developed \textit{OriginalityGuard}, a web-based academic originality-assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.
+This project successfully developed OriginalityGuard, a web-based academic originality assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.
 
 The system combines multiple complementary techniques to support originality review. It extracts text from digital documents and scanned files using document parsers and OCR methods, then performs chunk-level AI-text probability analysis to present interpretable indicators. It also supports on-demand online source verification, pairwise similarity analysis using Jaccard similarity, TF--IDF cosine similarity, and weighted token similarity, as well as PDF and DOCX metadata forensics. The generated reports, similarity matrices, clusters, heatmaps, and metadata records enable teachers to examine suspicious patterns with supporting evidence instead of relying on a single score.
 
