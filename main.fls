@@ -47,10 +47,12 @@ INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tocloft\tocloft.s
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tocloft\tocloft.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\tabularx.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\tabularx.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\longtable.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\tools\longtable.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hyperref.sty
@@ -269,6 +271,8 @@ INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\chngcntr\chngcntr
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\chngcntr\chngcntr.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\placeins\placeins.sty
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\placeins\placeins.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
@@ -389,30 +393,42 @@ INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
-INPUT .\Images\1.png
-INPUT .\Images\1.png
-INPUT .\Images\1.png
-INPUT .\Images\1.png
-INPUT .\Images\1.png
-INPUT .\Images\1.png
-INPUT .\Images\1.png
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\2.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
-INPUT .\Images\3.png
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\1.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\2.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT .\Images\3.png
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT .\Images\4.png
@@ -462,6 +478,13 @@ INPUT .\Images\DFD1.png
 INPUT .\Images\DFD1.png
 INPUT .\Images\DFD1.png
 INPUT .\Images\DFD1.png
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
+INPUT .\Images\architecture.jpg
 INPUT .\Images\system_flowchart.png
 INPUT .\Images\system_flowchart.png
 INPUT .\Images\system_flowchart.png

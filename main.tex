@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage{tocloft}
 \usepackage{titlesec}
+\usepackage{tabularx}
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{array}
@@ -29,6 +30,7 @@
 \usepackage{tikz}
 \usepackage{chngcntr}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{natbib}
 \usetikzlibrary{shapes.geometric,arrows.meta,positioning}
 \graphicspath{{Images/}}
@@ -95,7 +97,7 @@
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 \renewcommand{\thefigure}{\thechapter.\arabic{figure}}
-\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
 \numberwithin{equation}{chapter}
 
 % TikZ flowchart styles (shared by Figures I, II, III in Chapter 3)
@@ -289,9 +291,23 @@ Consequently, there is a pressing need for a comprehensive system capable of per
 \end{enumerate}
 
 \subsection{Specific Objectives}
-
 To develop a web application for generative text detection, plagiarism analysis, and document forensics, this project aims to provide an integrated platform that empowers educators and administrators to verify the integrity of student submissions. By implementing a secure, role-based dashboard for Students, Teachers, and Django Admin users, the system facilitates streamlined document management and communication.
-\section{Scope}
+
+\begin{enumerate}[label=\Roman*.]
+\item To build a role-based classroom and assignment management.
+
+\item To support text/file submission with deadline validation.
+
+\item To extract text from digital and scanned documents.
+ 
+\item To provide AI-writing indicators and source evidence.
+ 
+\item To compare submissions using several similarity measures.
+ 
+\item To inspect metadata for shared origins and anomalies.
+ 
+\item To present evidence through reports, charts, tables, and clusters.
+\end{enumerate}
 
 
 The project includes the following scope:
@@ -487,6 +503,58 @@ information and hashed for comparison.
 The results are presented using clusters, similarity matrices, heatmaps,
 metadata tables, and scatter plots.
 
+\subsection{File-level Implementation Structure}
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Implementation Responsibilities by File and Module}
+    \label{tab:implementation-responsibilities}
+    \renewcommand{\arraystretch}{1.5}
+
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{7.5cm}|X|}
+        \hline
+        \textbf{Path} & \textbf{Implementation Responsibility} \\
+        \hline
+
+        \shortstack[l]{\texttt{frontend-react/src/}\\\texttt{App.jsx}} & \shortstack[l]{Routing, protected pages,\\and user profile layout.} \\
+        \hline
+
+        \shortstack[l]{\texttt{frontend-react/src/}\\\texttt{services/api.js}} & \shortstack[l]{API calls, JWT handling,\\file upload, and token refresh.} \\
+        \hline
+
+        \shortstack[l]{\texttt{frontend-react/src/components/}\\\texttt{SubmissionDetail.jsx}} & \shortstack[l]{Submission review UI, source analysis,\\and polling status updates.} \\
+        \hline
+
+        \shortstack[l]{\texttt{frontend-react/src/components/}\\\texttt{MetadataForensics.jsx}} & \shortstack[l]{Metadata display, clustering results,\\and forensic visualization.} \\
+        \hline
+
+        \shortstack[l]{\texttt{backend-django/apps/}\\\texttt{authentication/}} & \shortstack[l]{User registration, verification,\\login, and profile management.} \\
+        \hline
+
+        \shortstack[l]{\texttt{backend-django/apps/}\\\texttt{classroom/}} & \shortstack[l]{Classroom, assignment, submission,\\and join-request logic.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{ocr\_engine.py}} & \shortstack[l]{Document parsing and\\OCR text extraction.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{detector\_service.py}} & \shortstack[l]{Text chunking, model scoring,\\and AI detection orchestration.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{firecrawl\_service.py}} & \shortstack[l]{Web search, source retrieval,\\and similarity checking.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{plagiarism\_vector.py}} & \shortstack[l]{Similarity comparison and\\vector-based plagiarism analysis.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/}\\\texttt{document\_forensics.py}} & \shortstack[l]{Metadata inspection, anomaly detection,\\and forensic reporting.} \\
+        \hline
+
+        \shortstack[l]{\texttt{analysis\_engine/}\\\texttt{tests.py}} & \shortstack[l]{Validation for analysis,\\OCR, and forensic modules.} \\
+        \hline
+    \end{tabularx}
+\end{table}
+\FloatBarrier
+
 \subsection{Deployment Strategy}
 The Multinomial Naive Bayes model achieved an exceptional performance, reflecting 
 a high capability in distinguishing between human-authored and machine-generated 
@@ -557,6 +625,7 @@ document analysis framework.
 \caption{Evaluation metrics}
 \label{fig:deployment-456}
 \end{figure}
+
 
 \chapter{System Design}
 
@@ -717,7 +786,7 @@ This web-based approach ensures that users can access powerful analytical tools 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{Images/usecase.png}
+\includegraphics[width=0.9\textwidth]{Images/usecase.png}
 \caption{Use Case Diagram of the System}
 \label{fig:usecase}
 \end{figure}
@@ -761,6 +830,85 @@ Classroom and Assignment Management manages classroom information, assignments, 
 Generative Text Detection Engine analyzes submitted text to detect whether it may have been generated by AI and extracts relevant text information. The Teacher sends an analysis request to this process, and the engine returns highlighted text and its source for review. It also interacts with the classroom Database (D3) by retrieving text extraction data and storing or processing the extracted text. The analysis results are then passed to the Plagiarism Analysis and Document Forensics process for further examination.
 
 Plagiarism Analysis and Document Forensics performs detailed plagiarism and document analysis using the information received from the Generative Text Detection Engine. The Teacher can request and view the analysis results through this process. It generates a similarity matrix with probability scores and stores the results in the Report Database (D4). The process can retrieve analytics reports from the database and provides the final analysis for the Teacher, while the Django Admin can also interact with this process for administrative monitoring and management.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight]{Images/architecture.jpg}\caption{Architecture diagram of the system}
+\label{fig:architecture diagram of the system}
+\end{figure}
+It is a multi-layer system architecture diagram that shows how the different parts of the system are organized and how data flows from the users through the application and AI analysis components to the database.
+
+The Presentation Layer represents the three main users of the system: Student, Teacher, and Django Admin. It shows the major operations available to each role, such as registration, classroom and assignment activities, submission analysis, report viewing, user management, system monitoring, and data backup or restoration.
+
+The Web Interface (Frontend) acts as the interaction layer between the users and the system. It is developed using technologies such as React, JavaScript, Bootstrap, Tailwind CSS, and Axios. User actions are passed from the frontend to the backend application through this layer.
+
+The Application Layer contains the main backend modules implemented using Django and Django REST Framework. These modules handle authentication, user management, classrooms, assignments, join requests, submissions, reporting, and metadata forensics. They process requests from the frontend and coordinate the appropriate system functions.
+
+The Machine Learning and Analysis Layer contains the AI and analysis engine, which performs the core document analysis tasks. It includes document extraction and OCR, text preprocessing and chunking, generative text detection, source verification and web search, similarity analysis, clustering and visualization, and metadata forensics. This layer is responsible for analyzing submitted documents and producing meaningful detection and plagiarism-related results.
+
+The Data Layer uses a PostgreSQL database to store and manage the system's persistent information. It contains data related to users, classrooms, assignments, join requests, submissions, detection results, system logs, and backup history. The database supports the application and analysis layers by providing the required data for processing and storing generated results.
+
+\subsection{Technology stack used}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Technology Stack}
+    \label{tab:technology-stack}
+    \renewcommand{\arraystretch}{1.3}
+    
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.5cm}|
+                                  >{\raggedright\arraybackslash}p{5.2cm}|
+                                  X|}
+        \hline
+        \textbf{Layer} & \textbf{Technologies} & \textbf{Purpose} \\
+        \hline
+        Frontend 
+        & React 19, Vite, React Router, Axios, Tailwind CSS 
+        & UI, routing, styling, API communication. \\
+        \hline
+        
+        Backend 
+        & Python, Django, Django REST Framework 
+        & APIs, models, business rules, serialization. \\
+        \hline
+        
+        Authentication 
+        & Simple JWT 
+        & Access/refresh tokens and protected APIs. \\
+        \hline
+        
+        Database 
+        & PostgreSQL 
+        & Persistent application data. \\
+        \hline
+        
+        Document tools 
+        & python-docx, pypdf/PyPDF2, python-pptx 
+        & Text and metadata extraction. \\
+        \hline
+        
+        OCR 
+        & Tesseract, EasyOCR, TrOCR, optional Google Vision 
+        & Reads scans/images. \\
+        \hline
+        
+        Analysis 
+        & joblib model, NumPy, custom vector logic 
+        & AI-like text and similarity scoring. \\
+        \hline
+        
+        Source lookup 
+        & Requests, Firecrawl and search fallbacks 
+        & Finds possible online sources. \\
+        \hline
+        
+        Visualization 
+        & Matplotlib, Seaborn, Pandas 
+        & Heatmap and cluster plots. \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \subsection{System Flowchart}
 
