@@ -290,45 +290,30 @@ Furthermore, the prevalence of diverse submission formats, including scanned doc
 
 Consequently, there is a pressing need for a comprehensive system capable of performing multimodal detection, forensic metadata analysis, and intelligent source searching. By integrating these advanced capabilities, such a system can effectively bridge the existing gap in forensic technology to ensure the originality and authenticity of academic and professional work.
 \section{Objectives}
-\subsection{General Objective}
 
 \begin{enumerate}[label=\Roman*.]
-\item To design and develop an integrated AI-driven document forensics system for assessing the originality, authenticity, and integrity of academic submissions.
+\item To develop a secure, role-based web platform for managing classrooms, assignments, and student submissions with proper authentication and deadline validation.
 
-\item To develop a comprehensive academic integrity platform for detecting potential plagiarism, AI-generated content, and document manipulation.
+\item To implement document processing and forensic analysis using text extraction, OCR, HTR, and metadata analysis for digital, scanned, and handwritten documents.
 
-\item To automate the analysis and forensic examination of academic documents using artificial intelligence and digital forensic techniques.
+\item To develop AI-based analysis for identifying potential AI-generated content and plagiarism using textual features, similarity measures, and online source evidence.
 
-\item To implement an integrated system for analyzing, comparing, and verifying student submissions based on textual content, metadata, authorship characteristics, and document evidence.
-
-\item To develop a secure web-based platform that combines document processing, AI-based analysis, forensic examination, and evidence-based reporting.
+\item To provide evidence-based reports presenting originality indicators, document anomalies, shared origins, and analysis results to support instructor review.
 \end{enumerate}
 
-\subsection{Specific Objectives}
-To develop a web application for generative text detection, plagiarism analysis, and document forensics, this project aims to provide an integrated platform that empowers educators and administrators to verify the integrity of student submissions. By implementing a secure, role-based dashboard for Students, Teachers, and Django Admin users, the system facilitates streamlined document management and communication.
-
-\begin{enumerate}[label=\Roman*.]
-\item To implement a secure, role-based web application for managing classrooms, assignments, and student submissions with appropriate authentication and deadline validation.
-
-\item To develop document processing capabilities using Optical Character Recognition (OCR), Handwritten Text Recognition (HTR), and text extraction techniques for analyzing digital, scanned, and handwritten documents.
-
-\item To develop an AI-driven analysis engine using Natural Language Processing (NLP), stylometric analysis, and source evidence to identify potential AI-generated writing and assess authorship characteristics.
-
-\item To perform plagiarism and document similarity analysis using multiple similarity measures, along with metadata forensics to identify shared origins, anomalies, editing history, and potential unauthorized document manipulation.
-
-\end{enumerate}
 
 \section{Scope}
-The project includes the following scope:
+The system includes the following scope:
 
 \begin{enumerate}[label=\Roman*.]
-\item The project utilizes an AI-driven detection engine to analyze stylometric patterns and natural language characteristics for the identification of synthetic or AI-generated text.
+\item The system can be used to support originality and authenticity checks for college research papers, project reports, assignments, and other academic submissions.
 
-\item The project features an intelligent search module designed to identify paraphrased or restructured content by performing high-speed comparisons across academic databases and online sources.
+\item The system can assist teachers in classroom assessment and evaluation by providing evidence related to potential AI-generated content, plagiarism, content similarity, and document irregularities.
 
-\item The project integrates a forensic analysis module that evaluates file metadata, such as creation history and editing timestamps, to verify document authenticity and detect potential tampering.
+\item The system can support colleges and universities in reviewing and verifying submitted documents through text analysis, source comparison, and available document metadata.
 
-\item The project provides a secure, integrated web-based application that manages user authentication, document submission, and the delivery of detailed integrity reports.\end{enumerate}
+\item The platform can be extended to other educational and institutional applications where document originality, authorship, and academic integrity need to be assessed.
+\end{enumerate}
 
 \chapter{Literature Review}
 
@@ -427,9 +412,26 @@ This time schedule shows our project outline for the Generative Text Detection, 
 We completed requirement analysis in week 1 and 2 followed by dataset collection and preprocessing for 3 weeks. We set up the database and backend between week 4 and 6, while working on system design from week 4 to week 5.Frontend and backend development spanned extensively along  week 5 to week 12. Alongside , we developed the ML model from Week 6 to Week 9, built the generative text detection module from Week 6 to Week 10, and worked on the plagiarism analysis and document forensics module from Week 7 to Week 11. Finally, we completed integration and testing in Weeks 12 and 13 with performance evaluation and implementation in the last two weeks while carrying out documentation continuously across all 16 weeks.
 
 \section{Implementation detail}
+\subsection{Model Workflow}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9 \textwidth]{Images/mlWorkflow.png}
+\caption{Machine Learning Model Workflow}
+\label{fig:mlworkflow}
+\end{figure}
+The figure illustrates the overall workflow of the Generative AI Text Detection, Plagiarism Analysis, and Document Forensics System. The process begins when a user uploads a document in PDF, DOCX, or TXT format through the application. If the uploaded document is image-based or scanned, the Optical Character Recognition (OCR) module is activated to convert the images into machine-readable text. For digital documents, the text is extracted directly without requiring OCR. After extraction, the document is divided into smaller chunks of approximately 500 words each. Chunking improves processing efficiency, allows large documents to be analyzed effectively, and provides detailed section-wise analysis in the final report.
+
+Each text chunk is then processed by the AI Detection Module. Initially, TF-IDF (Term Frequency–Inverse Document Frequency) vectorization transforms the textual data into numerical feature vectors that represent the importance of words within the document. These feature vectors are passed to a Multinomial Naïve Bayes classifier, which has been trained to distinguish between human-written and AI-generated text. The classifier calculates the probability that each chunk has been generated by an AI model and produces an overall prediction for the document. A predefined probability threshold is then used to classify the content as either AI-generated or human-written. If the probability is below the threshold, the document is considered likely to be written by a human, and the plagiarism analysis stage is skipped to reduce unnecessary processing time and API usage.
+
+When the AI-generated probability exceeds the threshold, the system proceeds to plagiarism verification. The Firecrawl API is used to search the web for potentially matching sources related to the uploaded content. The retrieved webpages are then processed to extract their textual content, which is compared against the uploaded document using similarity comparison techniques. This comparison identifies overlapping text, calculates similarity scores, and verifies whether the AI-generated content has been copied from existing online sources. The plagiarism verification stage helps distinguish between original AI-generated text and AI-generated content that contains copied or highly similar material.
+
+Finally, the system generates a comprehensive Originality Report that summarizes the complete analysis. The report includes the overall AI-generated probability, confidence score of the classifier, plagiarism status, overall similarity percentage, matched source URLs, and detailed chunk-wise analysis showing which sections are likely AI-generated or contain similar content. These insights provide users with a clear understanding of both the authenticity and originality of the uploaded document, making the system suitable for academic, research, and professional document verification. 
+
+
+
 \subsection{Frontend Development}
 
-The frontend of OriginalityGuard is developed using React 19, Vite, React
+The frontend of OriginalityGuard was developed using React 19, Vite, React
 Router, Axios, and Tailwind CSS. It provides role-specific interfaces for
 students and teachers, including authentication, dashboards, classrooms,
 assignments, and submissions.
@@ -446,7 +448,7 @@ refresh operations.
 
 \subsection{Backend Development}
 
-The backend is developed using Python, Django, and Django REST Framework. It
+The backend was developed using Python, Django, and Django REST Framework. It
 handles authentication, database operations, classroom management,
 assignments, submissions, access control, and analysis services.
 
@@ -456,7 +458,7 @@ join requests, and submissions, and \texttt{analysis\_engine} for document
 extraction, OCR, AI-text analysis, source verification, similarity analysis,
 and metadata forensics.
 
-PostgreSQL is used for persistent data storage. The system also enforces
+PostgreSQL was used for persistent data storage. The system also enforced
 access permissions, unique classroom invite codes, one submission per
 student for an assignment, and deadline restrictions.
 
@@ -485,7 +487,7 @@ The system uses Tesseract, EasyOCR, and TrOCR, with optional Google Cloud
 Vision support. Image preprocessing such as grayscale conversion,
 thresholding, upscaling, and sharpening is applied when required.
 
-The extracted text is cached in the submission record and divided into
+The extracted text was cached in the submission record and divided into
 approximately 100--120 word segments for further analysis.
 
 
@@ -789,7 +791,7 @@ The application streamlines the plagiarism detection process through a structure
 
 This web-based approach ensures that users can access powerful analytical tools without requiring local installation, making the platform both scalable and easy to maintain in an academic environment.
 
-\section{Proposed System Design}
+\section{System Design}
 
 \subsection{Use Case Diagram}
 
@@ -943,19 +945,6 @@ The data collection and integration process consists of two parallel pipelines: 
 
 Simultaneously, the plagiarism verification pipeline gathers technical and educational content from online sources using the Firecrawl Search API. Relevant website content, including articles, tutorials, blogs, and code snippets, is extracted and stored for comparison. Similarity matching techniques such as SequenceMatcher and fuzzy matching are then applied to compare the submitted text with the collected content and calculate similarity scores. Finally, the outputs of both the AI text detection model and the plagiarism verification pipeline are integrated into a unified originality analysis framework. This framework provides comprehensive originality assessment by combining AI-generated text detection with plagiarism verification, enabling accurate analysis and effective decision support for users.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9 \textwidth]{Images/mlWorkflow.png}
-\caption{Machine Learning Model Workflow}
-\label{fig:mlworkflow}
-\end{figure}
-The figure illustrates the overall workflow of the proposed Generative AI Text Detection, Plagiarism Analysis, and Document Forensics System. The process begins when a user uploads a document in PDF, DOCX, or TXT format through the application. If the uploaded document is image-based or scanned, the Optical Character Recognition (OCR) module is activated to convert the images into machine-readable text. For digital documents, the text is extracted directly without requiring OCR. After extraction, the document is divided into smaller chunks of approximately 500 words each. Chunking improves processing efficiency, allows large documents to be analyzed effectively, and provides detailed section-wise analysis in the final report.
-
-Each text chunk is then processed by the AI Detection Module. Initially, TF-IDF (Term Frequency–Inverse Document Frequency) vectorization transforms the textual data into numerical feature vectors that represent the importance of words within the document. These feature vectors are passed to a Multinomial Naïve Bayes classifier, which has been trained to distinguish between human-written and AI-generated text. The classifier calculates the probability that each chunk has been generated by an AI model and produces an overall prediction for the document. A predefined probability threshold is then used to classify the content as either AI-generated or human-written. If the probability is below the threshold, the document is considered likely to be written by a human, and the plagiarism analysis stage is skipped to reduce unnecessary processing time and API usage.
-
-When the AI-generated probability exceeds the threshold, the system proceeds to plagiarism verification. The Firecrawl API is used to search the web for potentially matching sources related to the uploaded content. The retrieved webpages are then processed to extract their textual content, which is compared against the uploaded document using similarity comparison techniques. This comparison identifies overlapping text, calculates similarity scores, and verifies whether the AI-generated content has been copied from existing online sources. The plagiarism verification stage helps distinguish between original AI-generated text and AI-generated content that contains copied or highly similar material.
-
-Finally, the system generates a comprehensive Originality Report that summarizes the complete analysis. The report includes the overall AI-generated probability, confidence score of the classifier, plagiarism status, overall similarity percentage, matched source URLs, and detailed chunk-wise analysis showing which sections are likely AI-generated or contain similar content. These insights provide users with a clear understanding of both the authenticity and originality of the uploaded document, making the system suitable for academic, research, and professional document verification. 
 
 \chapter{Results and Discussion}
 
@@ -1033,32 +1022,39 @@ Overall, OriginalityGuard demonstrates that classroom workflows, AI-text indicat
 
 \section{Limitations}
 
-This project is designed as an originality-assistance system that provides evidence for instructor review; it does not automatically determine whether plagiarism or AI use has occurred. The AI-text analysis module produces probability-based indicators, and these results may be affected by the characteristics of the trained model, writing style, document length, and the continuous evolution of generative AI systems. Therefore, AI-text probability should be interpreted together with academic context and other available evidence.
+\begin{itemize}
+\item AI-text detection produces probability-based results that may vary with the trained model, writing style, document length, and evolving generative AI systems.
 
-The accuracy of the text-extraction pipeline depends on the quality of submitted documents. Although the system supports digital text extraction and OCR for scanned PDFs and images, low-resolution scans, noise, poor contrast, complex layouts, mathematical content, and unclear handwriting can reduce extraction quality. Since the extracted text is used for AI analysis, source verification, and similarity comparison, extraction errors may influence the final report.
+\item Text extraction and OCR accuracy may decrease for low-quality scans, noisy images, complex layouts, mathematical content, and unclear handwriting.
 
-Online source verification is limited by the availability, accessibility, and indexing of online content. Search engines and external services may not return every relevant source, and a detected web-page similarity does not necessarily establish that a student copied from that source. Likewise, the absence of a matched source does not prove that the content is original. Source-verification results should therefore be treated as possible evidence rather than a final conclusion.
+\item Online source verification depends on the availability, accessibility, and indexing of external sources and cannot guarantee detection of all relevant sources.
 
-Finally, the current implementation uses in-process background processing for potentially slow source-verification tasks. While this approach is suitable for development and moderate workloads, it may not provide sufficient reliability, monitoring, and scalability for a large institutional deployment with many simultaneous submissions.
-
+\item Source matches indicate possible evidence but do not conclusively prove plagiarism, while the absence of a match does not guarantee originality.
+\end{itemize}
 \section{Future Enhancements}
-Future work can improve the AI-text detector using larger and more diverse validated datasets. Evaluation using precision, recall, F1-score, OCR error rate, and processing time would provide a clearer measure of system performance.
+\begin{itemize}
 
-Multilingual support like Nepali, can be added to make the system more suitable for local academic institutions. Embedding-based semantic similarity can also improve the detection of paraphrased content.
+\item AI-text detection can be improved using larger, diverse datasets and comprehensive performance evaluation.
 
-The current background processing can be replaced with Celery and Redis for scalable asynchronous analysis, task retries, progress tracking, and completion notifications. Downloadable reports can also be included for formal academic review.
+\item Multilingual support, including Nepali, can be added along with embedding-based semantic similarity for better paraphrase detection.
 
-Additional features such as rubric-based grading, teacher comments, audit logs, submission-history tracking, and examiner analytics can improve usability, assessment transparency, and accountability.
+\item Scalable asynchronous processing can be introduced using Celery and Redis, along with progress tracking, notifications, and downloadable reports.
 
-Security and deployment can be strengthened through secure cloud storage, stricter file validation, malware scanning, HTTPS, environment-based secret management, restricted CORS policies, and regular security monitoring.
+\item The platform can be extended with rubric-based grading, teacher comments, audit logs, submission history, and examiner analytics.
 
-\chapter*{Appendices}
-\addcontentsline{toc}{chapter}{\numberline{}Appendices}
+\item Security and deployment can be strengthened through secure cloud storage, file validation, malware scanning, HTTPS, and improved access controls.
 
-This section is reserved for supplementary material that is not central to the main body of the report, such as program source code listings, raw dataset samples, or additional supporting figures. Appendix content will be added as it becomes available in the final phase of the project.
+\end{itemize}
+
 
 \renewcommand{\bibname}{References}
 \addcontentsline{toc}{chapter}{\numberline{}References}
 \bibliographystyle{unsrt}
 \bibliography{ref}
+
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{\numberline{}Appendices}
+
+
+
 \end{document}
