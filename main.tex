@@ -289,7 +289,7 @@ Furthermore, the prevalence of diverse submission formats, including scanned doc
 Consequently, there is a pressing need for a comprehensive system capable of performing multimodal detection, forensic metadata analysis, and intelligent source searching. By integrating these advanced capabilities, such a system can effectively bridge the existing gap in forensic technology to ensure the originality and authenticity of academic and professional work.
 \section{Objectives}
 
-\begin{enumerate}[label=\Roman*.]
+\begin{itemize}
 \item To develop a secure, role-based web platform for managing classrooms, assignments, and student submissions with proper authentication and deadline validation.
 
 \item To implement document processing and forensic analysis using text extraction, OCR, HTR, and metadata analysis for digital, scanned, and handwritten documents.
@@ -297,13 +297,13 @@ Consequently, there is a pressing need for a comprehensive system capable of per
 \item To develop AI-based analysis for identifying potential AI-generated content and plagiarism using textual features, similarity measures, and online source evidence.
 
 \item To provide evidence-based reports presenting originality indicators, document anomalies, shared origins, and analysis results to support instructor review.
-\end{enumerate}
+\end{itemize}
 
 
 \section{Scope}
 The system includes the following scope:
 
-\begin{enumerate}[label=\Roman*.]
+\begin{itemize}
 \item The system can be used to support originality and authenticity checks for college research papers, project reports, assignments, and other academic submissions.
 
 \item The system can assist teachers in classroom assessment and evaluation by providing evidence related to potential AI-generated content, plagiarism, content similarity, and document irregularities.
@@ -311,7 +311,7 @@ The system includes the following scope:
 \item The system can support colleges and universities in reviewing and verifying submitted documents through text analysis, source comparison, and available document metadata.
 
 \item The platform can be extended to other educational and institutional applications where document originality, authorship, and academic integrity need to be assessed.
-\end{enumerate}
+\end{itemize}
 
 \chapter{Literature Review}
 
@@ -325,14 +325,16 @@ Smith and Jones \cite{smith} developed a robust pipeline for document digitizati
 
 Wang et al. \cite{wang} proposed a digital forensic framework for analyzing document metadata, specifically focusing on OOXML and PDF file structures to detect document tampering. Their research validates the use of metadata extraction, such as creation history and revision timestamps, as a reliable method to verify the authenticity of academic documents, a core feature of the forensic module in this project.
 
-\section{Related Theory}
 
 Stamatatos \cite{stamatatos} surveyed modern authorship-attribution methods and showed how lexical, syntactic, and structural features can represent writing style. This supports the use of stylistic indicators as supplementary evidence when reviewing potentially AI-generated academic writing.
 
 Smith \cite{raysmith} documented the design of the Tesseract OCR engine, while Li et al. \cite{li} demonstrated transformer-based recognition for printed and handwritten text. Together, these works support the multi-engine extraction strategy used for scanned and handwritten submissions.
 
-Mitchell et al. \cite{mitchell} introduced a zero-shot approach to machine-generated text detection based on probability curvature. Their work reinforces the need to present AI-text scores as probabilistic indicators rather than definitive proof. Potthast et al. \cite{potthast} provided an evaluation framework for plagiarism detection, supporting the use of multiple comparison measures and evidence-based review in this project.
+Mitchell et al. \cite{mitchell} introduced a zero-shot approach to machine-generated text detection based on probability curvature. Their work reinforces the need to present AI-text scores as probabilistic indicators rather than definitive proof.
 
+Potthast et al. \cite{potthast} provided an evaluation framework for plagiarism detection, supporting the use of multiple comparison measures and evidence-based review in this project.
+
+                                                                      \section{Related Theory}
 \subsection{Stylometric Analysis}
 
 Stylometry operates on the principle that individuals possess unique writing signatures, characterized by consistent vocabulary usage and syntactic preferences.
@@ -405,33 +407,31 @@ Digital document forensics is based on the extraction and verification of hidden
 
 \chapter{Methodology}
 
-\section{Time Schedule}
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{Images/timesched.jpg}
-\caption{Gantt chart showing the project timeline}
-\label{fig:timesched}
-\end{figure}
-This time schedule shows our project outline for the Generative Text Detection, Plagiarism Analysis and Document Forensics System over 16 weeks.
-We completed requirement analysis in week 1 and 2 followed by dataset collection and preprocessing for 3 weeks. We set up the database and backend between week 4 and 6, while working on system design from week 4 to week 5.Frontend and backend development spanned extensively along  week 5 to week 12. Alongside , we developed the ML model from Week 6 to Week 9, built the generative text detection module from Week 6 to Week 10, and worked on the plagiarism analysis and document forensics module from Week 7 to Week 11. Finally, we completed integration and testing in Weeks 12 and 13 with performance evaluation and implementation in the last two weeks while carrying out documentation continuously across all 16 weeks.
-
 \section{Implementation detail}
 \subsection{Model Workflow}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9 \textwidth]{Images/mlworkflow1.png}
+\includegraphics[width=0.9\textwidth,height=0.72\textheight,keepaspectratio]{Images/mlworkflow1.png}
 \caption{Machine Learning Model Workflow}
 \label{fig:mlworkflow}
 \end{figure}
-The figure illustrates the overall workflow of the Generative AI Text Detection, Plagiarism Analysis, and Document Forensics System. The process begins when a user uploads a document in PDF, DOCX, or TXT format through the application. If the uploaded document is image-based or scanned, the Optical Character Recognition (OCR) module is activated to convert the images into machine-readable text. For digital documents, the text is extracted directly without requiring OCR. After extraction, the document is divided into smaller chunks of approximately 500 words each. Chunking improves processing efficiency, allows large documents to be analyzed effectively, and provides detailed section-wise analysis in the final report.
+The workflow shown in Figure~\ref{fig:mlworkflow} is organized into the following blocks:
 
-Each text chunk is then processed by the AI Detection Module. Initially, TF-IDF (Term Frequency–Inverse Document Frequency) vectorization transforms the textual data into numerical feature vectors that represent the importance of words within the document. These feature vectors are passed to a Multinomial Naïve Bayes classifier, which has been trained to distinguish between human-written and AI-generated text. The classifier calculates the probability that each chunk has been generated by an AI model and produces an overall prediction for the document. A predefined probability threshold is then used to classify the content as either AI-generated or human-written. If the probability is below the threshold, the document is considered likely to be written by a human, and the plagiarism analysis stage is skipped to reduce unnecessary processing time and API usage.
+\noindent\textbf{A. Document Input and Upload.} The process begins when a user uploads a document through the application. The system accepts common academic submission formats, including PDF, DOCX, and TXT files, and records the uploaded file for subsequent analysis.
 
-When the AI-generated probability exceeds the threshold, the system proceeds to plagiarism verification. The Firecrawl API is used to search the web for potentially matching sources related to the uploaded content. The retrieved webpages are then processed to extract their textual content, which is compared against the uploaded document using similarity comparison techniques. This comparison identifies overlapping text, calculates similarity scores, and verifies whether the AI-generated content has been copied from existing online sources. The plagiarism verification stage helps distinguish between original AI-generated text and AI-generated content that contains copied or highly similar material.
+\noindent\textbf{B. Document Extraction.} The system first determines whether the document contains directly readable text. For digital PDF, DOCX, and TXT files, the embedded text is extracted using the appropriate document parser. This text is then passed to the common analysis pipeline.
 
-Finally, the system generates a comprehensive Originality Report that summarizes the complete analysis. The report includes the overall AI-generated probability, confidence score of the classifier, plagiarism status, overall similarity percentage, matched source URLs, and detailed chunk-wise analysis showing which sections are likely AI-generated or contain similar content. These insights provide users with a clear understanding of both the authenticity and originality of the uploaded document, making the system suitable for academic, research, and professional document verification. 
+\noindent\textbf{C. OCR and HTR Processing.} If the document is scanned, image-based, or handwritten, the OCR module converts its visual content into machine-readable text. OCR and handwritten-text recognition methods are applied according to the document type and image quality. The extracted text is normalized before further analysis.
+
+\noindent\textbf{D. Text Preprocessing and Chunking.} The extracted text is cleaned and divided into smaller sections of approximately 500 words. Chunking reduces the processing load for large documents, supports efficient model inference, and allows the final report to identify the sections that require closer review.
+
+\noindent\textbf{E. AI-Text Detection.} Each text chunk is transformed into numerical features using TF-IDF vectorization and passed to the trained Multinomial Naive Bayes classifier. The classifier produces an AI-generated probability for every chunk. These probabilities are combined to calculate the document-level result, while a predefined threshold is used to mark chunks as likely AI-generated or likely human-written.
+
+\noindent\textbf{F. Conditional Plagiarism Verification.} When the AI-generated probability exceeds the configured threshold, the system initiates plagiarism verification. The Firecrawl API searches for potentially related online sources, and the retrieved content is compared with the submitted document using similarity measures. This stage identifies overlapping passages and helps distinguish original AI-generated writing from AI-generated content that may have been copied or closely paraphrased.
+
+\noindent\textbf{G. Result Aggregation.} The system combines the extraction result, chunk-level AI probabilities, similarity scores, matched source information, and supporting evidence. If the AI probability remains below the threshold, the optional source-verification stage can be skipped to reduce processing time and external API usage.
+
+\noindent\textbf{H. Originality Report.} Finally, the system generates an Originality Report containing the overall AI-generated probability, classifier confidence, plagiarism status, similarity percentage, matched source URLs, and chunk-wise evidence. The report supports teacher review by presenting analytical indicators rather than making an automatic final judgement.
 
 
 
@@ -1055,13 +1055,18 @@ Overall, OriginalityGuard demonstrates that classroom workflows, AI-text indicat
 
 \appendix
 \renewcommand{\chaptername}{Appendix}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{8}
+\refstepcounter{chapter}
+\setcounter{figure}{0}
 
-\chapter{System Interface Screenshots}
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{\numberline{}Appendices}
 \label{app:interface-screens}
 
 This appendix presents representative screenshots of the OriginalityGuard interface used to validate the primary user workflow and the evidence-review features described in this report.
 
-\section{Access and Classroom Management}
+\noindent\textbf{Access and Classroom Management}\par\medskip
 
 \begin{figure}[H]
   \centering
@@ -1077,7 +1082,9 @@ This appendix presents representative screenshots of the OriginalityGuard interf
   \label{fig:appendix-teacher-dashboard}
 \end{figure}
 
-\section{Originality Analysis and Forensics}
+
+
+\noindent\textbf{Originality Analysis and Forensics}\par\medskip
 
 \begin{figure}[H]
   \centering

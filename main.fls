@@ -378,28 +378,20 @@ INPUT .\main.lot
 INPUT .\main.lot
 INPUT main.lot
 OUTPUT main.lot
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
+INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\timesched.jpg
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT .\Images\mlWorkflow.png
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
+INPUT .\Images\mlworkflow1.png
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -408,7 +400,6 @@ INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT .\Images\1.png
@@ -434,8 +425,6 @@ INPUT .\Images\3.png
 INPUT .\Images\3.png
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT .\Images\4.png
@@ -459,11 +448,6 @@ INPUT .\Images\6.jpg
 INPUT .\Images\6.jpg
 INPUT .\Images\6.jpg
 INPUT .\Images\6.jpg
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\Images\usecase.png
 INPUT .\Images\usecase.png
 INPUT .\Images\usecase.png
@@ -492,16 +476,58 @@ INPUT .\Images\architecture.jpg
 INPUT .\Images\architecture.jpg
 INPUT .\Images\architecture.jpg
 INPUT .\Images\architecture.jpg
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
-INPUT .\Images\system_flowchart.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
+INPUT .\Images\system_flowchart1.png
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\login1.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\dashboard2.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\chunk_ai_detection.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\plagiarism_analysis.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\comparision_matrix.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
+INPUT .\Images\appendix\metadata_analysis.PNG
 INPUT main.aux
 INPUT .\titlepage.aux
 INPUT .\titlepage.aux
@@ -522,8 +548,6 @@ INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
-INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\A C E R\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
