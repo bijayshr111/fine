@@ -205,10 +205,10 @@ Finally, we extend our heartfelt gratitude to our families, friends, and classma
 % Abstract
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{\numberline{}Abstract}
-Academic integrity in educational institutions is increasingly challenged by AI-assisted writing, paraphrased content, and the limitations of conventional plagiarism detection methods. This project presents OriginalityGuard, an integrated web-based originality-assistance system designed to help instructors review and investigate potentially problematic academic submissions using multiple sources of evidence. The system combines document text extraction and OCR, AI-text probability analysis, online source verification, pairwise submission similarity analysis, and document metadata forensics. AI-text analysis evaluates content in chunks and provides probability scores and evidence indicators, while source verification identifies potential online matches. Submission similarity is assessed using Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity. The forensic module analyzes PDF and DOCX metadata to identify potential shared origins and anomalies. The system is implemented using a React frontend, Django REST Framework backend, and PostgreSQL database, with JWT-based authentication and dedicated analysis services. It provides role-based functionality for students and teachers and presents analysis results through reports, visualizations, and supporting evidence. Rather than making automatic plagiarism or AI-use judgments, OriginalityGuard serves as an evidence-based decision-support tool, with instructors retaining responsibility for final interpretation. The completed system provides a unified platform for supporting academic originality assessment and strengthening the review of digital academic submissions.
+Academic integrity in educational institutions is increasingly challenged by AI-assisted writing, paraphrased content, and the limitations of conventional plagiarism detection methods. This project presents OriginalityGuard, an integrated web-based originality-assistance system designed to help instructors review and investigate potentially problematic academic submissions using multiple sources of evidence. The system combines document text extraction and OCR, AI-text probability analysis, online source verification, pairwise submission similarity analysis, and document metadata forensics. AI-text analysis evaluates content in chunks and provides probability scores and evidence indicators, while source verification identifies potential online matches. Submission similarity is assessed using Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity. The forensic module analyzes PDF and DOCX metadata to identify potential shared origins and anomalies. The system is implemented using a React frontend, Django REST Framework backend, and PostgreSQL database, with JWT-based authentication and dedicated analysis services. In model evaluation, the Multinomial Naive Bayes AI-text classifier achieved 96.43\% accuracy, 97.29\% precision, 93.46\% recall, a 95.34\% F1-score, a 99.45\% ROC-AUC, and a 99.23\% PR-AUC. It provides role-based functionality for students and teachers and presents analysis results through reports, visualizations, and supporting evidence. Rather than making automatic plagiarism or AI-use judgments, OriginalityGuard serves as an evidence-based decision-support tool, with instructors retaining responsibility for final interpretation. The completed system provides a unified platform for supporting academic originality assessment and strengthening the review of digital academic submissions.
 
 
-\noindent Keywords: \textit{plagiarism detection, generative AI text detection, document forensics, TF-IDF, OCR, Naive Bayes, academic integrity.recall, f1-score}
+\noindent Keywords: \textit{plagiarism detection, generative AI text detection, document forensics, TF-IDF, OCR, Naive Bayes, academic integrity}
 
 \newpage
 
@@ -251,7 +251,7 @@ PDF \> Portable Document Format \\
 PII \> Personally Identifiable Information \\
 PPTX \> PowerPoint XML Format \\
 REST \> Representational State Transfer \\
-TF-IDF \> Term Frequency--Inverse Document Frequency \\
+TF-IDF \> Term Frequency-Inverse Document Frequency \\
 UI/UX \> User Interface / User Experience \\
 XAI \> Explainable Artificial Intelligence \\
 XML \> Extensible Markup Language \\
@@ -323,7 +323,9 @@ Vaswani et al. \cite{vaswani} established the Transformer architecture, which se
 
 Smith and Jones \cite{smith} developed a robust pipeline for document digitization that integrates Tesseract OCR with deep learning-based HTR models. Their methodology, which focuses on noise reduction and pre-processing for heterogeneous handwritten documents, serves as a key reference for the OCR/HTR integration, ensuring that non-digital assignments are accurately converted for analysis.
 
-Wang et al. \cite{wang} proposed a digital forensic framework for analyzing document metadata, specifically focusing on OOXML and PDF file structures to detect document tampering. Their research validates the use of metadata extraction—such as creation history and revision timestamps—as a reliable method to verify the authenticity of academic documents, a core feature of the forensic module in this project.\section{Related Theory}
+Wang et al. \cite{wang} proposed a digital forensic framework for analyzing document metadata, specifically focusing on OOXML and PDF file structures to detect document tampering. Their research validates the use of metadata extraction, such as creation history and revision timestamps, as a reliable method to verify the authenticity of academic documents, a core feature of the forensic module in this project.
+
+\section{Related Theory}
 
 Stamatatos \cite{stamatatos} surveyed modern authorship-attribution methods and showed how lexical, syntactic, and structural features can represent writing style. This supports the use of stylistic indicators as supplementary evidence when reviewing potentially AI-generated academic writing.
 
@@ -490,7 +492,7 @@ Vision support. Image preprocessing such as grayscale conversion,
 thresholding, upscaling, and sharpening is applied when required.
 
 The extracted text was cached in the submission record and divided into
-approximately 100--120 word segments for further analysis.
+approximately 100 to 120 word segments for further analysis.
 
 
 \subsection{Submission Similarity and Metadata Forensics}
@@ -957,7 +959,7 @@ This chapter presents the results of the OriginalityGuard system implementation.
 
 \subsection{Dataset and Preprocessing}
 
-The AI-text detector operates on a persisted classification model that is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
+The AI-text detector operates on a persisted classification model that is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100 to 120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
 
 \subsection{Feature Extraction}
 
@@ -975,23 +977,21 @@ The Django REST Framework backend is organized into identity and access, classro
 
 \subsection{API Development}
 
-The REST API is fully implemented and reachable, covering registration, verification, JWT login/refresh, profile management, classroom and assignment CRUD, join requests, submission handling, AI analysis (\texttt{/api/analyze/}), source verification (\texttt{/api/verify-sources/}), and batch/per-assignment plagiarism-forensics reporting. The analysis endpoint returns a responsive result by performing AI-text scoring only, while source verification runs separately in a background thread and is polled by the frontend every three seconds for up to eight attempts.
+The REST API is fully implemented and reachable, covering registration, verification, JWT login and refresh, profile management, classroom and assignment management, join requests, submission handling, AI analysis, source verification, and batch or assignment-level plagiarism-forensics reporting. The analysis service returns a responsive result by performing AI-text scoring only, while source verification runs separately in a background thread and is polled by the frontend every three seconds for up to eight attempts.
 
 \section{Model Deployment}
 
 \subsection{AI Text Detection Model}
 
-The joblib-based detector is deployed and integrated into the submission-analysis pipeline. For each analyzed submission, it produces per-chunk probabilities, an AI-like flag per chunk, total and AI-flagged chunk counts, an average probability, an overall AI-text percentage, and a summary verdict, all persisted as a \texttt{DetectionResult} JSON record. The frontend renders these as green/amber/red chunk bars, allowing a teacher to inspect flagged evidence directly rather than relying on a single aggregate output.
+The joblib-based detector is deployed and integrated into the submission-analysis pipeline. For each analyzed submission, it produces per-chunk probabilities, an AI-like flag per chunk, total and AI-flagged chunk counts, an average probability, an overall AI-text percentage, and a summary verdict. These results are stored in the database and rendered as green, amber, and red chunk bars, allowing a teacher to inspect flagged evidence directly rather than relying on a single aggregate output.
 
 \subsection{Optical Character Recognition Integration}
 
-The OCR pipeline -- Tesseract, EasyOCR, the TrOCR handwritten-text model, and optional Google Cloud Vision -- is deployed and successfully extracts text from scanned PDFs and image-based submissions after preprocessing (grayscale conversion, contrast enhancement, thresholding, upscaling, sharpening). Extracted text is cached in
-
-\texttt{Submission.extracted\_text} and fed into the same AI-detection and similarity pipeline used for digitally submitted text, giving consistent downstream treatment regardless of submission format.
+The OCR pipeline uses Tesseract, EasyOCR, the TrOCR handwritten-text model, and optional Google Cloud Vision. It successfully extracts text from scanned PDFs and image-based submissions after preprocessing (grayscale conversion, contrast enhancement, thresholding, upscaling, sharpening). Extracted text is cached in the submission record and fed into the same AI-detection and similarity pipeline used for digitally submitted text, giving consistent downstream treatment regardless of submission format.
 
 \subsection{Plagiarism Verification Pipeline}
 
-The similarity engine is deployed and computes, for every submission pair, Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity, combined into an overall similarity score as their mean. Chunk-level matches are also recorded, allowing a strong local match to be surfaced even when whole-document similarity is low. Source verification is deployed as an on-demand service querying Bing, DuckDuckGo, Google, and Firecrawl-related paths, returning candidate URLs and match-confidence scores. Metadata forensics is deployed and reads DOCX/PDF author, title, creator, timestamps, edit/save/revision counts, and computes a SHA-1 origin-signature hash and a weighted 0--1 originality score used to cluster submissions sharing an origin signature or exceeding a 0.25 similarity threshold.
+The similarity engine is deployed and computes, for every submission pair, Jaccard similarity, TF-IDF cosine similarity, and semantic weighted token similarity, combined into an overall similarity score as their mean. Chunk-level matches are also recorded, allowing a strong local match to be surfaced even when whole-document similarity is low. Source verification is deployed as an on-demand service querying Bing, DuckDuckGo, Google, and Firecrawl-related paths, returning candidate URLs and match-confidence scores. Metadata forensics is deployed and reads DOCX/PDF author, title, creator, timestamps, edit/save/revision counts, and computes a SHA-1 origin-signature hash and a weighted originality score between 0 and 1, used to cluster submissions sharing an origin signature or exceeding a 0.25 similarity threshold.
 
 \section{Testing and Evaluation}
 
@@ -1014,7 +1014,7 @@ The chunk-level probability bars, similarity heatmaps, and cluster views give a 
 
 This project successfully developed OriginalityGuard, a web-based academic originality assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.
 
-The system combines multiple complementary techniques to support originality review. It extracts text from digital documents and scanned files using document parsers and OCR methods, then performs chunk-level AI-text probability analysis to present interpretable indicators. It also supports on-demand online source verification, pairwise similarity analysis using Jaccard similarity, TF--IDF cosine similarity, and weighted token similarity, as well as PDF and DOCX metadata forensics. The generated reports, similarity matrices, clusters, heatmaps, and metadata records enable teachers to examine suspicious patterns with supporting evidence instead of relying on a single score.
+The system combines multiple complementary techniques to support originality review. It extracts text from digital documents and scanned files using document parsers and OCR methods, then performs chunk-level AI-text probability analysis to present interpretable indicators. It also supports on-demand online source verification, pairwise similarity analysis using Jaccard similarity, TF-IDF cosine similarity, and weighted token similarity, as well as PDF and DOCX metadata forensics. The generated reports, similarity matrices, clusters, heatmaps, and metadata records enable teachers to examine suspicious patterns with supporting evidence instead of relying on a single score.
 
 A key contribution of the project is its evidence-oriented design. AI-text probabilities, source matches, document similarity, and metadata anomalies are presented as indicators for instructor review rather than as automatic proof of plagiarism or AI use. This approach recognizes the limitations of OCR quality, probabilistic classification, online search coverage, and editable document metadata, while preserving human judgement as the final basis for academic decisions.
 
