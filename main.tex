@@ -413,7 +413,7 @@ We completed requirement analysis in week 1 and 2 followed by dataset collection
 \subsection{Model Workflow}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9 \textwidth]{Images/mlWorkflow.png}
+\includegraphics[width=0.9 \textwidth]{Images/mlworkflow1.png}
 \caption{Machine Learning Model Workflow}
 \label{fig:mlworkflow}
 \end{figure}
@@ -518,7 +518,8 @@ metadata tables, and scatter plots.
     \small
     \caption{Implementation Responsibilities by File and Module}
     \label{tab:implementation-responsibilities}
-    \renewcommand{\arraystretch}{1.5}
+    \renewcommand{\arraystretch}{1.65}
+    \setlength{\extrarowheight}{3pt}
 
     \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{7.5cm}|X|}
         \hline
@@ -923,7 +924,7 @@ The Data Layer uses a PostgreSQL database to store and manage the system's persi
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,height=0.75\textheight]{Images/system_flowchart.png}
+\includegraphics[width=\textwidth,height=0.75\textheight]{Images/system_flowchart1.png}
 \caption{System Flowchart Showing Student, Teacher and Admin Workflows}
 \label{fig:flowchart}
 \end{figure}
@@ -1006,7 +1007,7 @@ End-to-end functional testing confirms the complete workflow operates correctly:
 
 \subsection{Evidence Presentation Results}
 
-The chunk-level probability bars, similarity heatmaps, and cluster views give a teacher visibility into the evidence behind each flag rather than a single opaque score. Origin-signature hash matches and the weighted originality score are surfaced as supporting evidence rather than a final verdict, consistent with the system's role as an originality-assistance tool that flags submissions for instructor review.
+The chunk-level probability bars, similarity heatmaps, and cluster views give a teacher visibility into the evidence behind each flag rather than a single opaque score. The representative interface records in Appendix~\ref{app:interface-screens} show the authentication, dashboard, AI-analysis, similarity, and metadata-review views used during system validation. Origin-signature hash matches and the weighted originality score are surfaced as supporting evidence rather than a final verdict, consistent with the system's role as an originality-assistance tool that flags submissions for instructor review.
 \chapter{Conclusion}
 
 This project successfully developed OriginalityGuard, a web-based academic originality assistance system that integrates classroom management with document analysis and forensic evidence. The system allows teachers to create classrooms and assignments, manage student access, receive submissions, and review analysis reports, while students can securely register, join classrooms, and submit their work before assignment deadlines. Its React frontend, Django REST backend, PostgreSQL database, and JWT-based authentication provide a structured and role-based environment for academic submission management.
@@ -1050,8 +1051,59 @@ Overall, OriginalityGuard demonstrates that classroom workflows, AI-text indicat
 \bibliographystyle{unsrt}
 \bibliography{ref}
 
-\chapter*{Appendices}
-\addcontentsline{toc}{chapter}{\numberline{}Appendices}
+\appendix
+\renewcommand{\chaptername}{Appendix}
+
+\chapter{System Interface Screenshots}
+\label{app:interface-screens}
+
+This appendix presents representative screenshots of the OriginalityGuard interface used to validate the primary user workflow and the evidence-review features described in this report.
+
+\section{Access and Classroom Management}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/login1.PNG}
+  \caption{OriginalityGuard login interface}
+  \label{fig:appendix-login}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/dashboard2.PNG}
+  \caption{Teacher dashboard for classroom and assignment management}
+  \label{fig:appendix-teacher-dashboard}
+\end{figure}
+
+\section{Originality Analysis and Forensics}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/chunk_ai_detection.PNG}
+  \caption{Chunk-level AI-text detection report}
+  \label{fig:appendix-ai-detection}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/plagiarism_analysis.PNG}
+  \caption{Side-by-side view of highlighted submission similarity}
+  \label{fig:appendix-plagiarism-comparison}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/comparision_matrix.PNG}
+  \caption{Pairwise submission similarity matrix}
+  \label{fig:appendix-similarity-matrix}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{Images/appendix/metadata_analysis.PNG}
+  \caption{Metadata-forensics review for a selected submission cluster}
+  \label{fig:appendix-metadata-forensics}
+\end{figure}
 
 
 
