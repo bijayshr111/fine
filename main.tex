@@ -325,6 +325,12 @@ Smith and Jones \cite{smith} developed a robust pipeline for document digitizati
 
 Wang et al. \cite{wang} proposed a digital forensic framework for analyzing document metadata, specifically focusing on OOXML and PDF file structures to detect document tampering. Their research validates the use of metadata extraction—such as creation history and revision timestamps—as a reliable method to verify the authenticity of academic documents, a core feature of the forensic module in this project.\section{Related Theory}
 
+Stamatatos \cite{stamatatos} surveyed modern authorship-attribution methods and showed how lexical, syntactic, and structural features can represent writing style. This supports the use of stylistic indicators as supplementary evidence when reviewing potentially AI-generated academic writing.
+
+Smith \cite{raysmith} documented the design of the Tesseract OCR engine, while Li et al. \cite{li} demonstrated transformer-based recognition for printed and handwritten text. Together, these works support the multi-engine extraction strategy used for scanned and handwritten submissions.
+
+Mitchell et al. \cite{mitchell} introduced a zero-shot approach to machine-generated text detection based on probability curvature. Their work reinforces the need to present AI-text scores as probabilistic indicators rather than definitive proof. Potthast et al. \cite{potthast} provided an evaluation framework for plagiarism detection, supporting the use of multiple comparison measures and evidence-based review in this project.
+
 \subsection{Stylometric Analysis}
 
 Stylometry operates on the principle that individuals possess unique writing signatures, characterized by consistent vocabulary usage and syntactic preferences.
@@ -450,11 +456,10 @@ The backend was developed using Python, Django, and Django REST Framework. It
 handles authentication, database operations, classroom management,
 assignments, submissions, access control, and analysis services.
 
-The backend is divided into three main applications: \texttt{authentication}
-for user and JWT management, \texttt{classroom} for classrooms, assignments,
-join requests, and submissions, and \texttt{analysis\_engine} for document
-extraction, OCR, AI-text analysis, source verification, similarity analysis,
-and metadata forensics.
+The backend is divided into three main functional areas: identity and access
+management; classroom, assignment, and submission management; and document
+analysis services for extraction, OCR, AI-text analysis, source verification,
+similarity analysis, and metadata forensics.
 
 PostgreSQL was used for persistent data storage. The system also enforced
 access permissions, unique classroom invite codes, one submission per
@@ -464,8 +469,7 @@ student for an assignment, and deadline restrictions.
 
 The Generative AI Text Detection Module analyzes submitted text in smaller
 chunks and provides probability-based indicators of AI-like writing. The
-module loads the trained model from
-\texttt{ml\_models/originality\_model.joblib} and assigns each text chunk a
+module loads the trained classification model and assigns each text chunk a
 normalized probability between 0 and 1.
 
 The system records the chunk text, word and sentence counts, probability, and
@@ -512,54 +516,54 @@ information and hashed for comparison.
 The results are presented using clusters, similarity matrices, heatmaps,
 metadata tables, and scatter plots.
 
-\subsection{File-level Implementation Structure}
+\subsection{Module-level Implementation Structure}
 \begin{table}[H]
     \centering
     \small
-    \caption{Implementation Responsibilities by File and Module}
+    \caption{Implementation Responsibilities by System Module}
     \label{tab:implementation-responsibilities}
     \renewcommand{\arraystretch}{1.65}
     \setlength{\extrarowheight}{3pt}
 
     \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{7.5cm}|X|}
         \hline
-        \textbf{Path} & \textbf{Implementation Responsibility} \\
+        \textbf{System Module} & \textbf{Implementation Responsibility} \\
         \hline
 
-        \shortstack[l]{\texttt{frontend-react/src/}\\\texttt{App.jsx}} & \shortstack[l]{Routing, protected pages,\\and user profile layout.} \\
+        Frontend application shell & \shortstack[l]{Routing, protected pages,\\and user profile layout.} \\
         \hline
 
-        \shortstack[l]{\texttt{frontend-react/src/}\\\texttt{services/api.js}} & \shortstack[l]{API calls, JWT handling,\\file upload, and token refresh.} \\
+        API communication layer & \shortstack[l]{API calls, JWT handling,\\file upload, and token refresh.} \\
         \hline
 
-        \shortstack[l]{\texttt{frontend-react/src/components/}\\\texttt{SubmissionDetail.jsx}} & \shortstack[l]{Submission review UI, source analysis,\\and polling status updates.} \\
+        Submission review interface & \shortstack[l]{Submission review UI, source analysis,\\and polling status updates.} \\
         \hline
 
-        \shortstack[l]{\texttt{frontend-react/src/components/}\\\texttt{MetadataForensics.jsx}} & \shortstack[l]{Metadata display, clustering results,\\and forensic visualization.} \\
+        Forensics review interface & \shortstack[l]{Metadata display, clustering results,\\and forensic visualization.} \\
         \hline
 
-        \shortstack[l]{\texttt{backend-django/apps/}\\\texttt{authentication/}} & \shortstack[l]{User registration, verification,\\login, and profile management.} \\
+        Identity and access management & \shortstack[l]{User registration, verification,\\login, and profile management.} \\
         \hline
 
-        \shortstack[l]{\texttt{backend-django/apps/}\\\texttt{classroom/}} & \shortstack[l]{Classroom, assignment, submission,\\and join-request logic.} \\
+        Classroom management & \shortstack[l]{Classroom, assignment, submission,\\and join-request logic.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{ocr\_engine.py}} & \shortstack[l]{Document parsing and\\OCR text extraction.} \\
+        Document extraction service & \shortstack[l]{Document parsing and\\OCR text extraction.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{detector\_service.py}} & \shortstack[l]{Text chunking, model scoring,\\and AI detection orchestration.} \\
+        AI-text analysis service & \shortstack[l]{Text chunking, model scoring,\\and AI detection orchestration.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{firecrawl\_service.py}} & \shortstack[l]{Web search, source retrieval,\\and similarity checking.} \\
+        Source-verification service & \shortstack[l]{Web search, source retrieval,\\and similarity checking.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/ml\_adapters/}\\\texttt{plagiarism\_vector.py}} & \shortstack[l]{Similarity comparison and\\vector-based plagiarism analysis.} \\
+        Similarity-analysis service & \shortstack[l]{Similarity comparison and\\vector-based plagiarism analysis.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/}\\\texttt{document\_forensics.py}} & \shortstack[l]{Metadata inspection, anomaly detection,\\and forensic reporting.} \\
+        Metadata-forensics service & \shortstack[l]{Metadata inspection, anomaly detection,\\and forensic reporting.} \\
         \hline
 
-        \shortstack[l]{\texttt{analysis\_engine/}\\\texttt{tests.py}} & \shortstack[l]{Validation for analysis,\\OCR, and forensic modules.} \\
+        Automated validation suite & \shortstack[l]{Validation for analysis,\\OCR, and forensic modules.} \\
         \hline
     \end{tabularx}
 \end{table}
@@ -953,7 +957,7 @@ This chapter presents the results of the OriginalityGuard system implementation.
 
 \subsection{Dataset and Preprocessing}
 
-The AI-text detector operates on the persisted model ml\_models/originality\_model.joblib, which is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
+The AI-text detector operates on a persisted classification model that is loaded at request time to score submitted text. Input text is normalized and split into paragraph- or sentence-level chunks prior to scoring, and large unstructured OCR output is further segmented into approximately 100--120 word blocks. A separate corpus of PDF, DOCX, PPTX, HTML, and image-based documents was used to exercise the extraction and OCR pipeline across formats.
 
 \subsection{Feature Extraction}
 
@@ -963,13 +967,11 @@ Chunk-level AI-likelihood is produced directly by the persisted joblib model as 
 
 \subsection{Frontend Implementation}
 
-The React 19 (Vite) frontend delivers a role-based interface with distinct Student and Teacher dashboards. \texttt{SubmissionDetail.jsx} renders chunk-level AI-probability bars, triggers source verification, and polls for background results. \texttt{MetadataForensics.jsx} renders similarity clusters, the pairwise similarity matrix, metadata fields, heatmaps, and scatter plots. JWT-based authentication with automatic token refresh is functioning across all protected routes.
+The React 19 (Vite) frontend delivers a role-based interface with distinct Student and Teacher dashboards. The submission-review interface renders chunk-level AI-probability bars, triggers source verification, and polls for background results. The metadata-forensics interface renders similarity clusters, the pairwise similarity matrix, metadata fields, heatmaps, and scatter plots. JWT-based authentication with automatic token refresh is functioning across all protected routes.
 
 \subsection{Backend Architecture}
 
-The Django REST Framework backend is organized into three functioning apps -- 
-
-\texttt{authentication}, \texttt{classroom}, and \texttt{analysis\_engine} -- with role-filtered querysets enforcing that students, teachers, and administrators access only permitted data. Database integrity rules are enforced and confirmed working: unique classroom invite codes, one join request per student per classroom, one submission per student per assignment, and rejection of submission create/update after the assignment deadline.
+The Django REST Framework backend is organized into identity and access, classroom management, and analysis services, with role-filtered querysets enforcing that students, teachers, and administrators access only permitted data. Database integrity rules are enforced and confirmed working: unique classroom invite codes, one join request per student per classroom, one submission per student per assignment, and rejection of submission create/update after the assignment deadline.
 
 \subsection{API Development}
 
@@ -995,7 +997,7 @@ The similarity engine is deployed and computes, for every submission pair, Jacca
 
 \subsection{Backend Test Coverage}
 
-Automated backend tests in \texttt{apps/analysis\_engine/tests.py} confirm correct behavior of the following components: similarity report construction, highlighting and chunk comparison, chunk splitting and merging, document-forensics output generation, OCR result selection, file-like text extraction, OCR text normalization, cached-text reuse, and analysis of long OCR-derived text. All tested components pass, validating the analysis pipeline independent of the user interface.
+Automated backend tests confirm correct behavior of the following components: similarity report construction, highlighting and chunk comparison, chunk splitting and merging, document-forensics output generation, OCR result selection, file-like text extraction, OCR text normalization, cached-text reuse, and analysis of long OCR-derived text. All tested components pass, validating the analysis pipeline independent of the user interface.
 
 \subsection{OCR Extraction Results}
 

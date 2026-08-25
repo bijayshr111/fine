@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.7)  25 AUG 2026 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.7)  25 AUG 2026 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,70 +1083,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [3
 
 ]
-Overfull \hbox (13.86382pt too wide) in paragraph at lines 341--342
+Overfull \hbox (13.86382pt too wide) in paragraph at lines 347--348
 \T1/ptm/m/n/12 Image pre-pro-cess-ing im-proves the vi-sual qual-ity of in-put 
 doc-u-ments be-fore recog-ni-tion. Grayscale
  []
 
 [4] [5] [6] [7]
  3.
-<Images/timesched.jpg, id=517, 1607.00375pt x 985.6825pt>
+<Images/timesched.jpg, id=527, 1607.00375pt x 985.6825pt>
 File: Images/timesched.jpg Graphic file (type jpg)
 <use Images/timesched.jpg>
-Package pdftex.def Info: Images/timesched.jpg  used on input line 405.
+Package pdftex.def Info: Images/timesched.jpg  used on input line 411.
 (pdftex.def)             Requested size: 452.97406pt x 277.83917pt.
-<Images/mlworkflow1.png, id=518, 1026.83624pt x 1542.76375pt>
+<Images/mlworkflow1.png, id=528, 1026.83624pt x 1542.76375pt>
 File: Images/mlworkflow1.png Graphic file (type png)
 <use Images/mlworkflow1.png>
-Package pdftex.def Info: Images/mlworkflow1.png  used on input line 416.
+Package pdftex.def Info: Images/mlworkflow1.png  used on input line 422.
 (pdftex.def)             Requested size: 407.66833pt x 612.50415pt.
 [8
 
  <./Images/timesched.jpg>] [9 <./Images/mlworkflow1.png (PNG copy)>] [10]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 45
-3.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 [11] [12]
-<Images/1.png, id=542, 697.60625pt x 555.07375pt>
+<Images/1.png, id=551, 697.60625pt x 555.07375pt>
 File: Images/1.png Graphic file (type png)
 <use Images/1.png>
-Package pdftex.def Info: Images/1.png  used on input line 585.
+Package pdftex.def Info: Images/1.png  used on input line 589.
 (pdftex.def)             Requested size: 247.51889pt x 196.94667pt.
-<Images/2.png, id=543, 564.1075pt x 483.8075pt>
+<Images/2.png, id=552, 564.1075pt x 483.8075pt>
 File: Images/2.png Graphic file (type png)
 <use Images/2.png>
-Package pdftex.def Info: Images/2.png  used on input line 592.
+Package pdftex.def Info: Images/2.png  used on input line 596.
 (pdftex.def)             Requested size: 229.6329pt x 196.94496pt.
-<Images/3.png, id=544, 693.59125pt x 529.98pt>
+<Images/3.png, id=553, 693.59125pt x 529.98pt>
 File: Images/3.png Graphic file (type png)
 <use Images/3.png>
-Package pdftex.def Info: Images/3.png  used on input line 600.
+Package pdftex.def Info: Images/3.png  used on input line 604.
 (pdftex.def)             Requested size: 257.74657pt x 196.94672pt.
 Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on in
-put line 605.
+put line 609.
  [13] [14 <./Images/1.png> <./Images/2.png> <./Images/3.png>]
-<Images/4.png, id=557, 992.70876pt x 692.5875pt>
+<Images/4.png, id=566, 992.70876pt x 692.5875pt>
 File: Images/4.png Graphic file (type png)
 <use Images/4.png>
-Package pdftex.def Info: Images/4.png  used on input line 614.
+Package pdftex.def Info: Images/4.png  used on input line 618.
 (pdftex.def)             Requested size: 282.28874pt x 196.94562pt.
-<Images/5.png, id=558, 710.655pt x 555.07375pt>
+<Images/5.png, id=567, 710.655pt x 555.07375pt>
 File: Images/5.png Graphic file (type png)
 <use Images/5.png>
-Package pdftex.def Info: Images/5.png  used on input line 622.
+Package pdftex.def Info: Images/5.png  used on input line 626.
 (pdftex.def)             Requested size: 252.14874pt x 196.94667pt.
-<Images/6.jpg, id=559, 1365.1pt x 785.93625pt>
+<Images/6.jpg, id=568, 1365.1pt x 785.93625pt>
 File: Images/6.jpg Graphic file (type jpg)
 <use Images/6.jpg>
-Package pdftex.def Info: Images/6.jpg  used on input line 630.
+Package pdftex.def Info: Images/6.jpg  used on input line 634.
 (pdftex.def)             Requested size: 275.38976pt x 158.55159pt.
  [15 <./Images/4.png> <./Images/5.png> <./Images/6.jpg>]
  4.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-52.
+56.
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -1154,71 +1148,70 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
 
 ]
-Overfull \hbox (4.01018pt too wide) in paragraph at lines 696--697
+Overfull \hbox (4.01018pt too wide) in paragraph at lines 700--701
 []\T1/ptm/m/n/12 The sys-tem must ex-e-cute se-man-tic search and re-trieval ac
 ross aca-demic and web databases
  []
 
 [17]
-Overfull \hbox (2.36656pt too wide) in paragraph at lines 750--751
+Overfull \hbox (2.36656pt too wide) in paragraph at lines 754--755
 []\T1/ptm/m/n/12 The user in-ter-face must be fully re-spon-sive and ac-ces-si-
 ble across all mod-ern web browsers
  []
 
 [18] [19]
-<Images/usecase.png, id=586, 1026.83624pt x 1542.76375pt>
+<Images/usecase.png, id=595, 1026.83624pt x 1542.76375pt>
 File: Images/usecase.png Graphic file (type png)
 <use Images/usecase.png>
-Package pdftex.def Info: Images/usecase.png  used on input line 799.
+Package pdftex.def Info: Images/usecase.png  used on input line 803.
 (pdftex.def)             Requested size: 407.66833pt x 612.50415pt.
  [20] [21 <./Images/usecase.png>]
-<Images/DFD0.png, id=596, 1111.90407pt x 688.82344pt>
+<Images/DFD0.png, id=605, 1111.90407pt x 688.82344pt>
 File: Images/DFD0.png Graphic file (type png)
 <use Images/DFD0.png>
-Package pdftex.def Info: Images/DFD0.png  used on input line 818.
+Package pdftex.def Info: Images/DFD0.png  used on input line 822.
 (pdftex.def)             Requested size: 452.9679pt x 280.61162pt.
  [22]
-<Images/DFD1.png, id=601, 646.66594pt x 733.23938pt>
+<Images/DFD1.png, id=610, 646.66594pt x 733.23938pt>
 File: Images/DFD1.png Graphic file (type png)
 <use Images/DFD1.png>
-Package pdftex.def Info: Images/DFD1.png  used on input line 833.
+Package pdftex.def Info: Images/DFD1.png  used on input line 837.
 (pdftex.def)             Requested size: 452.96895pt x 583.57146pt.
  [23 <./Images/DFD0.png>]
 [24 <./Images/DFD1.png>]
-<Images/architecture.jpg, id=612, 1541.76pt x 1129.21875pt>
+<Images/architecture.jpg, id=621, 1541.76pt x 1129.21875pt>
 File: Images/architecture.jpg Graphic file (type jpg)
 <use Images/architecture.jpg>
-Package pdftex.def Info: Images/architecture.jpg  used on input line 847.
+Package pdftex.def Info: Images/architecture.jpg  used on input line 851.
 (pdftex.def)             Requested size: 452.95676pt x 583.54428pt.
  [25] [26 <./Images/architecture.jpg>]
-Underfull \hbox (badness 8189) in paragraph at lines 920--920
+Underfull \hbox (badness 8189) in paragraph at lines 924--924
 []|\T1/ptm/m/n/12 Access/refresh to-kens and pro-tected
  []
 
-<Images/system_flowchart1.png, id=622, 1027.84pt x 1541.76pt>
+<Images/system_flowchart1.png, id=631, 1027.84pt x 1541.76pt>
 File: Images/system_flowchart1.png Graphic file (type png)
 <use Images/system_flowchart1.png>
-Package pdftex.def Info: Images/system_flowchart1.png  used on input line 927.
+Package pdftex.def Info: Images/system_flowchart1.png  used on input line 931.
 (pdftex.def)             Requested size: 452.97244pt x 547.05809pt.
 [27] [28 <./Images/system_flowchart1.png (PNG copy)>] [29] [30]
  5.
-
-Overfull \hbox (4.80324pt too wide) in paragraph at lines 956--957
-\T1/ptm/m/n/12 The AI-text de-tec-tor op-er-ates on the per-sisted model ml_mod
-els/originality_model.joblib, which
- []
-
 [31
 
 ]
-Overfull \hbox (2.70532pt too wide) in paragraph at lines 976--977
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 97
+8.
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (2.70532pt too wide) in paragraph at lines 978--979
 \T1/ptm/m/n/12 han-dling, AI anal-y-sis (\T1/pcr/m/n/12 /api/analyze/\T1/ptm/m/
 n/12 ), source ver-i-fi-ca-tion (\T1/pcr/m/n/12 /api/verify-sources/\T1/ptm/m/n
 /12 ),
  []
 
 
-Overfull \hbox (0.84497pt too wide) in paragraph at lines 988--989
+Overfull \hbox (0.84497pt too wide) in paragraph at lines 990--991
 []\T1/pcr/m/n/12 Submission.extracted_text \T1/ptm/m/n/12 and fed into the same
  AI-detection and sim-i-lar-ity pipeline
  []
@@ -1226,7 +1219,7 @@ Overfull \hbox (0.84497pt too wide) in paragraph at lines 988--989
 [32] [33]
  6.
 
-Overfull \hbox (9.85495pt too wide) in paragraph at lines 1019--1020
+Overfull \hbox (9.85495pt too wide) in paragraph at lines 1021--1022
 []\T1/ptm/m/n/12 Overall, Orig-i-nal-i-ty-Guard demon-strates that class-room w
 ork-flows, AI-text in-di-ca-tors, plagiarism-
  []
@@ -1236,7 +1229,7 @@ ork-flows, AI-text in-di-ca-tors, plagiarism-
 ]
  7.
 
-Overfull \hbox (0.60246pt too wide) in paragraph at lines 1025--1026
+Overfull \hbox (0.60246pt too wide) in paragraph at lines 1027--1028
 []\T1/ptm/m/n/12 AI-text de-tec-tion pro-duces probability-based re-sults that 
 may vary with the trained model,
  []
@@ -1247,45 +1240,45 @@ may vary with the trained model,
 
 ]
 Appendix A.
-<Images/appendix/login1.PNG, id=666, 1150.89975pt x 555.87675pt>
+<Images/appendix/login1.PNG, id=676, 1150.89975pt x 555.87675pt>
 File: Images/appendix/login1.PNG Graphic file (type png)
 <use Images/appendix/login1.PNG>
-Package pdftex.def Info: Images/appendix/login1.PNG  used on input line 1066.
+Package pdftex.def Info: Images/appendix/login1.PNG  used on input line 1068.
 (pdftex.def)             Requested size: 452.976pt x 218.78432pt.
-<Images/appendix/dashboard2.PNG, id=667, 1149.093pt x 536.60475pt>
+<Images/appendix/dashboard2.PNG, id=677, 1149.093pt x 536.60475pt>
 File: Images/appendix/dashboard2.PNG Graphic file (type png)
 <use Images/appendix/dashboard2.PNG>
 Package pdftex.def Info: Images/appendix/dashboard2.PNG  used on input line 107
-3.
+5.
 (pdftex.def)             Requested size: 452.96625pt x 211.52667pt.
-<Images/appendix/chunk_ai_detection.PNG, id=668, 780.516pt x 460.119pt>
+<Images/appendix/chunk_ai_detection.PNG, id=678, 780.516pt x 460.119pt>
 File: Images/appendix/chunk_ai_detection.PNG Graphic file (type png)
 <use Images/appendix/chunk_ai_detection.PNG>
 Package pdftex.def Info: Images/appendix/chunk_ai_detection.PNG  used on input 
-line 1082.
+line 1084.
 (pdftex.def)             Requested size: 452.97353pt x 267.03069pt.
 [37
 
  <./Images/appendix/login1.PNG> <./Images/appendix/dashboard2.PNG>]
-<Images/appendix/plagiarism_analysis.PNG, id=675, 886.512pt x 483.0045pt>
+<Images/appendix/plagiarism_analysis.PNG, id=685, 886.512pt x 483.0045pt>
 File: Images/appendix/plagiarism_analysis.PNG Graphic file (type png)
 <use Images/appendix/plagiarism_analysis.PNG>
 Package pdftex.def Info: Images/appendix/plagiarism_analysis.PNG  used on input
- line 1089.
+ line 1091.
 (pdftex.def)             Requested size: 452.96735pt x 246.79333pt.
-<Images/appendix/comparision_matrix.PNG, id=676, 813.0375pt x 489.027pt>
+<Images/appendix/comparision_matrix.PNG, id=686, 813.0375pt x 489.027pt>
 File: Images/appendix/comparision_matrix.PNG Graphic file (type png)
 <use Images/appendix/comparision_matrix.PNG>
 Package pdftex.def Info: Images/appendix/comparision_matrix.PNG  used on input 
-line 1096.
+line 1098.
 (pdftex.def)             Requested size: 452.96558pt x 272.4504pt.
  [38 <./Images/appendix/chunk_ai_detection.PNG> <./Images/appendix/plagiarism_a
 nalysis.PNG>]
-<Images/appendix/metadata_analysis.PNG, id=684, 894.34125pt x 422.7795pt>
+<Images/appendix/metadata_analysis.PNG, id=694, 894.34125pt x 422.7795pt>
 File: Images/appendix/metadata_analysis.PNG Graphic file (type png)
 <use Images/appendix/metadata_analysis.PNG>
 Package pdftex.def Info: Images/appendix/metadata_analysis.PNG  used on input l
-ine 1103.
+ine 1105.
 (pdftex.def)             Requested size: 452.9693pt x 214.13094pt.
  [39 <./Images/appendix/comparision_matrix.PNG> <./Images/appendix/metadata_ana
 lysis.PNG>] (main.aux (titlepage.aux))
@@ -1294,14 +1287,14 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 06291C0F81F516BCA10424B6254AC524;12598.
+(rerunfilecheck)             Checksum: 87E1CE82D9769682245B7AF70B9DCA1C;12608.
  ) 
 Here is how much of TeX's memory you used:
- 27419 strings out of 467866
- 522610 string characters out of 5418798
- 924183 words of memory out of 5000000
- 55657 multiletter control sequences out of 15000+600000
- 668153 words of font info for 92 fonts, out of 8000000 for 9000
+ 27437 strings out of 467866
+ 522877 string characters out of 5418798
+ 923257 words of memory out of 5000000
+ 55671 multiletter control sequences out of 15000+600000
+ 667532 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,118p,1698b,579s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
@@ -1316,9 +1309,9 @@ al/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Dell/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Dell/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Dell/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (50 pages, 4910365 bytes).
+Output written on main.pdf (50 pages, 4913703 bytes).
 PDF statistics:
- 775 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
+ 786 PDF objects out of 1000 (max. 8388607)
+ 167 named destinations out of 1000 (max. 500000)
  705 words of extra memory for PDF output out of 10000 (max. 10000000)
 

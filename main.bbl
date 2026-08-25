@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{schulz}
 A.~Schulz et~al.
@@ -29,5 +29,39 @@ Y.~Wang et~al.
 \newblock Digital forensic frameworks for metadata integrity in {OOXML} and
   {PDF} documents.
 \newblock {\em IEEE Transactions on Information Forensics and Security}, 2025.
+
+\bibitem{stamatatos}
+Efstathios Stamatatos.
+\newblock A survey of modern authorship attribution methods.
+\newblock {\em Journal of the American Society for Information Science and
+  Technology}, 60(3):538--556, 2009.
+
+\bibitem{raysmith}
+Ray Smith.
+\newblock An overview of the {Tesseract} {OCR} engine.
+\newblock In {\em Proceedings of the Ninth International Conference on Document
+  Analysis and Recognition}, pages 629--633, 2007.
+
+\bibitem{li}
+Minghao Li, Tengchao Lv, Jingye Chen, Lei Cui, Yijuan Lu, Dinei Florencio, Cha
+  Zhang, Zhoujun Li, and Furu Wei.
+\newblock {TrOCR}: Transformer-based optical character recognition with
+  pre-trained models.
+\newblock In {\em Proceedings of the Thirty-Seventh {AAAI} Conference on
+  Artificial Intelligence}, pages 13025--13033, 2023.
+
+\bibitem{mitchell}
+Eric Mitchell, Yoonho Lee, Alexander Khazatsky, Christopher~D. Manning, and
+  Chelsea Finn.
+\newblock {DetectGPT}: Zero-shot machine-generated text detection using
+  probability curvature.
+\newblock In {\em Proceedings of the 40th International Conference on Machine
+  Learning}, pages 24950--24962, 2023.
+
+\bibitem{potthast}
+Martin Potthast, Benno Stein, Alberto Barr{\'o}n-Cede{\~n}o, and Paolo Rosso.
+\newblock An evaluation framework for plagiarism detection.
+\newblock In {\em Proceedings of the 23rd International Conference on
+  Computational Linguistics}, pages 997--1005, 2010.
 
 \end{thebibliography}
